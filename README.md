@@ -1,2 +1,2 @@
 # CoffeeMaker-Group2
-![diagram](resources/CoffeeMakerUML.jpg)
+![diagram](resources/CoffeeMakerUML .jpg)
