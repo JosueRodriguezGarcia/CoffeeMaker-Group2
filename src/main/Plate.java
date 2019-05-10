@@ -4,9 +4,9 @@ public class Plate {
 	Heater heater;
 	Sensor sensor;
 	
-	public Plate (Heater heater, Sensor sensor) {
-		this.heater = heater;
-		this.sensor = sensor;
+	public Plate () {
+		this.heater = new PlateHeater();
+		this.sensor = new PlateSensor();
 	}
 
 	public Heater getHeater() {

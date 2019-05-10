@@ -6,10 +6,10 @@ public class Boiler {
 	Sensor sensor;
 	PressureValve valve;
 	
-	public Boiler (Heater heater, Sensor sensor, PressureValve valve) {
+	public Boiler (PressureValve valve) {
 		pressure = 0.0;
-		this.heater = heater;
-		this.sensor = sensor;
+		this.heater = new BoilerHeater();
+		this.sensor = new BoilerSensor();
 		this.valve = valve;
 	}
 

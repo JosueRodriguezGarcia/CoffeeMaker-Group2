@@ -11,7 +11,7 @@ public class CoffeeMaker {
 		isOn = builder.isOn;
 		button = builder.button;
 		light = builder.light;
-		plate = builder.plate;
+		plate = new Plate();
 		boiler = builder.boiler;
 	}
 
@@ -60,7 +60,6 @@ public class CoffeeMaker {
 		boolean isOn;
 		StartButton button;
 		LightIndicator light;
-		Plate plate;
 		Boiler boiler;
 
 		public CoffeeMaker build() {
@@ -75,24 +74,16 @@ public class CoffeeMaker {
 			this.isOn = isOn; 
 			return this; 
 		}
-
 		public Builder button (StartButton button) { 
 			this.button = button; 
 			return this; 
 		}
-
 		public Builder light (LightIndicator light) { 
 			this.light = light; 
 			return this; 
 		}
-
-		public Builder plate (Plate plate) { 
-			this.plate = plate; 
-			return this; 
-		}
-
-		public Builder boiler (Boiler boiler) { 
-			this.boiler = boiler; 
+		public Builder boiler (PressureValve valve) { 
+			this.boiler = new Boiler(valve); 
 			return this; 
 		}
 	}
