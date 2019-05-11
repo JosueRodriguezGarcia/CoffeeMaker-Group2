@@ -2,17 +2,17 @@ package main;
 
 public class CoffeeMaker {
 	boolean isOn;
-	boolean groundsIn;
 	StartButton button;
 	LightIndicator light;
+	Filter filter;
 	Plate plate;
 	Boiler boiler;
 
 	private CoffeeMaker (Builder builder) {
 		isOn = builder.isOn;
-		groundsIn = builder.groundsIn;
 		button = builder.button;
 		light = builder.light;
+		filter = new Filter();
 		plate = new Plate();
 		boiler = new Boiler();
 	}
@@ -28,12 +28,6 @@ public class CoffeeMaker {
 	public void setIsOn(boolean isOn) {
 		this.isOn = isOn;
 	}
-	public boolean getGroundsIn() {
-		return isOn;
-	}
-	public void setGroundsIn(boolean groundsIn) {
-		this.groundsIn = groundsIn;
-	}
 	public StartButton getButton() {
 		return this.button;
 	}
@@ -45,6 +39,12 @@ public class CoffeeMaker {
 	}
 	public void setLightIndicator(LightIndicator light) {
 		this.light = light;
+	}
+	public Filter getFilter() {
+		return filter;
+	}
+	public void setFilter(Filter filter) {
+		this.filter = filter;
 	}
 	public Plate getPlate () {
 		return this.plate;
@@ -66,10 +66,8 @@ public class CoffeeMaker {
 	/* Mr. Builder */
 	public static class Builder {
 		boolean isOn;
-		boolean groundsIn;
 		StartButton button;
 		LightIndicator light;
-		Boiler boiler;
 
 		public CoffeeMaker build() {
 			return new CoffeeMaker(this);
@@ -77,15 +75,10 @@ public class CoffeeMaker {
 		
 		public Builder () {
 			isOn = false;
-			groundsIn = false;
 		}
 		
 		public Builder isOn (boolean isOn) { 
 			this.isOn = isOn; 
-			return this; 
-		}
-		public Builder groundsIn (boolean groundsIn) { 
-			this.groundsIn = groundsIn; 
 			return this; 
 		}
 		public Builder button (StartButton button) { 
