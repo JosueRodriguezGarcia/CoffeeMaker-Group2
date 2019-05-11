@@ -24,16 +24,21 @@ public class MainClass {
 		
 		/* EJEMPLO BASICO de proceso que deberia estar dentro de los metodos de CONTROLLER */
 		model.getIsOn();  	// preguntar si estar prendido y demas...
-		model.getPlate().getSensor().getStatus();	// preguntar si hay POT y si esta lleno? ... y demas
-		model.getBoiler().getValve().isOpen();	// preguntar si la valvula esta cerrada, y... demas
+		model.getBoiler().getValve().isOpen();	// preguntar si la valvula esta cerrada, y... demas    pop-up nuevamente al panel
 		model.getBoiler().getSensor().getStatus(); // pregutnar si la caldera esta llena ... y demas
+		//verificar filtro --> si hay granos
+		
+		model.getPlate().getSensor().getStatus();	// preguntar si hay POT y que esta vacio? ... y demas
 		//
 		model.getLightIndicator().on();	// si todo esta bien, prender la luz e iniciar el proceso
 		// view.animate();
+		//encender calentador
+		//verificar si esta lleno;
+		//
 		model.getLightIndicator().off();	// una vez terminado el proceso apagar la luz
 		//
-		model.getBoiler().getValve().close();	// cerrar la valvula
-		model.setIsOn(false);	// colocar en estdo apagdo la cafetera
+		// prender calentador del plato
+		// averigurar retiros del pot, por ejemplo cuando la gente se sirve y luego devuelve el pot, puede devolver lleno, o no lleno, considerar eso tambien.
 		/* ************************************************************************ */
 		
 		
