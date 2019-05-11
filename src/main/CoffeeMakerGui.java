@@ -2,6 +2,6 @@ package main;
 
 public class CoffeeMakerGui {
 	public void issueReport() {
-		System.out.println("Hmm!");
+		System.out.println("Hmmm!");
 	}
 }

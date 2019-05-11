@@ -13,7 +13,9 @@ public class CoffeeMakerController {
 	}
 	
 	public boolean missingComponents () {
-		boolean missingComponents = true;  
+		boolean missingComponents = true;
+		retrieveCheckBox();
+		
 		if (model.getBoiler().getValve().isOpen()) {
 			issueReport = "Error: Relief valve must be closed prior starting the brewing cycle!";
 			missingComponents = true;
@@ -41,10 +43,30 @@ public class CoffeeMakerController {
 		return missingComponents;
 	}
 
-	public void startBrew () {
+	public void brewCycle () {
 		
 	}
+	
+	public void cycleComplete () {
+		model.getPlate().getSensor().setStatus(PlateSensor.POT_NOT_EMPTY);
+		model.getPlate().getHeater().on();
+	}
+	
+	public void placePotOut () {
+		model.getPlate().getSensor().setStatus(PlateSensor.WARMER_EMPTY);
+		model.getPlate().getHeater().off();
+	}
+	public void placePotIn () {
+		retrieveCheckBox();	// al poner la jarra mediante GUI, usaremos checkBox??? u otro mecanismo??
+		if (model.getPlate().getSensor().getStatus() == PlateSensor.POT_NOT_EMPTY) {
+			model.getPlate().getHeater().off();
+		}
+	}
 
+	public void retrieveCheckBox() {
+		// Retrieve and set options from GUI panel.
+	}
+	
 	public void popup () {
 		view.issueReport();
 	}

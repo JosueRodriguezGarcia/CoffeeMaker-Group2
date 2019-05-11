@@ -35,7 +35,7 @@ public class MainClass {
 			controller.popup();
 		} 
 		else {
-			controller.startBrew();
+			controller.brewCycle();
 		}
 		
 		
