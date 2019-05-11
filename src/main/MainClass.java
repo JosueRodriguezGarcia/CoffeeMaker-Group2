@@ -18,11 +18,23 @@ public class MainClass {
 		// CoffeeMaker laCafetera = new CoffeeMaker.Builder().build();
 
 		/* Please do keep in mind that the parameter passed to boiler has to be a PressureValve object */
-		CoffeeMaker model = new CoffeeMaker.Builder().button(button).light(light).boiler(valve).build();
+		CoffeeMaker model = new CoffeeMaker.Builder().button(button).light(light).build();
 		System.out.println("Builder: I'm done, I've just built a coffee maker for you, enjoy it!");
 
 		
-		
+		/* EJEMPLO BASICO de proceso que deberia estar dentro de los metodos de CONTROLLER */
+		model.getIsOn();  	// preguntar si estar prendido y demas...
+		model.getPlate().getSensor().getStatus();	// preguntar si hay POT y si esta lleno? ... y demas
+		model.getBoiler().getValve().isOpen();	// preguntar si la valvula esta cerrada, y... demas
+		model.getBoiler().getSensor().getStatus(); // pregutnar si la caldera esta llena ... y demas
+		//
+		model.getLightIndicator().on();	// si todo esta bien, prender la luz e iniciar el proceso
+		// view.animate();
+		model.getLightIndicator().off();	// una vez terminado el proceso apagar la luz
+		//
+		model.getBoiler().getValve().close();	// cerrar la valvula
+		model.setIsOn(false);	// colocar en estdo apagdo la cafetera
+		/* ************************************************************************ */
 		
 		
 		/* **************** */

@@ -2,7 +2,7 @@ package main;
 
 public class CoffeeMaker {
 	boolean isOn;
-	boolean grounds;
+	boolean groundsIn;
 	StartButton button;
 	LightIndicator light;
 	Plate plate;
@@ -10,11 +10,11 @@ public class CoffeeMaker {
 
 	private CoffeeMaker (Builder builder) {
 		isOn = builder.isOn;
-		grounds = builder.grounds;
+		groundsIn = builder.groundsIn;
 		button = builder.button;
 		light = builder.light;
 		plate = new Plate();
-		boiler = builder.boiler;
+		boiler = new Boiler();
 	}
 
 
@@ -28,11 +28,11 @@ public class CoffeeMaker {
 	public void setIsOn(boolean isOn) {
 		this.isOn = isOn;
 	}
-	public boolean getGrounds() {
+	public boolean getGroundsIn() {
 		return isOn;
 	}
-	public void setGrounds(boolean grounds) {
-		this.grounds = grounds;
+	public void setGroundsIn(boolean groundsIn) {
+		this.groundsIn = groundsIn;
 	}
 	public StartButton getButton() {
 		return this.button;
@@ -66,7 +66,7 @@ public class CoffeeMaker {
 	/* Mr. Builder */
 	public static class Builder {
 		boolean isOn;
-		boolean grounds;
+		boolean groundsIn;
 		StartButton button;
 		LightIndicator light;
 		Boiler boiler;
@@ -77,15 +77,15 @@ public class CoffeeMaker {
 		
 		public Builder () {
 			isOn = false;
-			grounds = false;
+			groundsIn = false;
 		}
 		
 		public Builder isOn (boolean isOn) { 
 			this.isOn = isOn; 
 			return this; 
 		}
-		public Builder grounds (boolean grounds) { 
-			this.grounds = grounds; 
+		public Builder groundsIn (boolean groundsIn) { 
+			this.groundsIn = groundsIn; 
 			return this; 
 		}
 		public Builder button (StartButton button) { 
@@ -94,10 +94,6 @@ public class CoffeeMaker {
 		}
 		public Builder light (LightIndicator light) { 
 			this.light = light; 
-			return this; 
-		}
-		public Builder boiler (PressureValve valve) { 
-			this.boiler = new Boiler(valve); 
 			return this; 
 		}
 	}

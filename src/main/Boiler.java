@@ -6,11 +6,11 @@ public class Boiler {
 	Sensor sensor;
 	PressureValve valve;
 	
-	public Boiler (PressureValve valve) {
+	public Boiler () {
 		pressure = 0.0;
 		this.heater = new BoilerHeater();
 		this.sensor = new BoilerSensor();
-		this.valve = valve;
+		this.valve = new PressureValve();
 	}
 
 	public double getPressure() {
@@ -35,5 +35,13 @@ public class Boiler {
 
 	public void setSensor(Sensor sensor) {
 		this.sensor = sensor;
+	}
+
+	public PressureValve getValve() {
+		return valve;
+	}
+
+	public void setValve(PressureValve valve) {
+		this.valve = valve;
 	}
 }
