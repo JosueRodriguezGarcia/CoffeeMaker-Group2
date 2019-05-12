@@ -1,6 +1,6 @@
 package main;
 
-public abstract class Heater implements DeviceDriver {
+public class Heater implements DeviceDriver {
 	boolean isOn;
 	Sensor sensor;
 	
@@ -8,16 +8,12 @@ public abstract class Heater implements DeviceDriver {
 		isOn = false;
 	}
 	
-	boolean isOn () {
+	boolean getIsOn () {
 		return isOn;
 	}
 	
-	Sensor getSensor () {
+	public Sensor getSensor () {
 		return sensor;
-	}
-	
-	void setSensor (Sensor sensor) {
-		this.sensor = sensor;
 	}
 	
 	public void off() {

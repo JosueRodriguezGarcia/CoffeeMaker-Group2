@@ -5,7 +5,7 @@ public class Plate {
 	Sensor sensor;
 	
 	public Plate () {
-		this.heater = new PlateHeater();
+		this.heater = new Heater();
 		this.sensor = new PlateSensor();
 	}
 
@@ -13,15 +13,7 @@ public class Plate {
 		return heater;
 	}
 
-	public void setHeater(Heater heater) {
-		this.heater = heater;
-	}
-
 	public Sensor getSensor() {
 		return sensor;
-	}
-
-	public void setSensor(Sensor sensor) {
-		this.sensor = sensor;
 	}
 }

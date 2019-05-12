@@ -8,7 +8,7 @@ public class Boiler {
 	
 	public Boiler () {
 		pressure = 0.0;
-		this.heater = new BoilerHeater();
+		this.heater = new Heater();
 		this.sensor = new BoilerSensor();
 		this.valve = new PressureValve();
 	}
@@ -25,23 +25,11 @@ public class Boiler {
 		return heater;
 	}
 
-	public void setHeater(Heater heater) {
-		this.heater = heater;
-	}
-
 	public Sensor getSensor() {
 		return sensor;
 	}
 
-	public void setSensor(Sensor sensor) {
-		this.sensor = sensor;
-	}
-
 	public PressureValve getValve() {
 		return valve;
-	}
-
-	public void setValve(PressureValve valve) {
-		this.valve = valve;
 	}
 }
