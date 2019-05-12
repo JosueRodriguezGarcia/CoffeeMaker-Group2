@@ -1,11 +1,17 @@
 package main;
 
-public class PlateSensor extends Sensor {
-	static final int WARMER_EMPTY = -1;
-	static final int POT_EMPTY = 0;
-	static final int POT_NOT_EMPTY = 1;
+public class PlateSensor implements Sensor {
+	PlateSensorStatus status;
 	
 	public PlateSensor() {
-		status = WARMER_EMPTY;
+		this.status = PlateSensorStatus.WARMER_EMPTY;
+	}
+	
+	public PlateSensorStatus getStatus() {
+		return this.status;
+	}
+	
+	public void setStatus(SensorStatus status) {
+		this.status = (PlateSensorStatus) status;
 	}
 }

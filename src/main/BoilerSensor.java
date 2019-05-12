@@ -1,10 +1,17 @@
 package main;
 
-public class BoilerSensor extends Sensor {
-	static final int BOILER_EMPTY = 0;
-	static final int BOILER_NOT_EMPTY = 1;
-	
+public class BoilerSensor implements Sensor {
+	BoilerSensorStatus status;
+
 	public BoilerSensor() {
-		status = BOILER_EMPTY;
+		this.status = BoilerSensorStatus.BOILER_EMPTY;
+	}
+	
+	public BoilerSensorStatus getStatus() {
+		return status;
+	}
+	
+	public void setStatus(SensorStatus status) {
+		this.status = (BoilerSensorStatus) status;
 	}
 }

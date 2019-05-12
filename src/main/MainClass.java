@@ -16,16 +16,16 @@ public class MainClass {
 		//CoffeeMaker model = new CoffeeMaker.Builder().button(button).light(light).filter(filter).build();
 		/* Sin filtro */
 		CoffeeMaker model = new CoffeeMaker.Builder().button(button).light(light).build();
-
-
-
+		
+		
+		
 		
 		
 		/* **************** */
 		/*       VIEW       */
 		/* **************** */
 		// Algunos pasos previos si fuere necesario
-		CoffeeMakerGui view = new CoffeeMakerGui();
+		//CoffeeMakerGui view = new CoffeeMakerGui();
 		
 		
 		
@@ -34,7 +34,7 @@ public class MainClass {
 		/* **************** */
 		/*    CONTROLLER    */
 		/* **************** */
-		CoffeeMakerController controller = new CoffeeMakerController(model, view);
+		//CoffeeMakerController controller = new CoffeeMakerController(model, view);
 		
 		/*
 		if (controller.missingComponents()) { // ¿Is any ingredient missing?

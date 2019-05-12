@@ -20,7 +20,7 @@ public class CoffeeMakerController {
 			issueReport = "Error: Relief valve must be closed prior starting the brewing cycle!";
 			missingConditions = true;
 		}
-		else if (model.getBoiler().getSensor().getStatus() == BoilerSensor.BOILER_EMPTY) { 	// 2. Is the boiler empty?
+		else if (model.getBoiler().getSensor().getStatus() == BoilerSensorStatus.BOILER_EMPTY) { 	// 2. Is the boiler empty?
 			issueReport = "Error: Boiler is empty!";
 			missingConditions = true;
 		}
@@ -32,11 +32,11 @@ public class CoffeeMakerController {
 			issueReport = "Error: No coffee grunds found!";
 			missingConditions = true;
 		}
-		else if (model.getPlate().getSensor().getStatus() == PlateSensor.WARMER_EMPTY) {	// 5. No pot on the plate/warmer? 
+		else if (model.getPlate().getSensor().getStatus() == PlateSensorStatus.WARMER_EMPTY) {	// 5. No pot on the plate/warmer? 
 			issueReport = "Error: No pot found!";
 			missingConditions = true;
 		}
-		else if (model.getPlate().getSensor().getStatus() == PlateSensor.POT_NOT_EMPTY) {	// 6. Isn't the pot empty?
+		else if (model.getPlate().getSensor().getStatus() == PlateSensorStatus.POT_NOT_EMPTY) {	// 6. Isn't the pot empty?
 			issueReport = "Error: Pot is empty!";
 			missingConditions = true;
 		}
@@ -52,17 +52,17 @@ public class CoffeeMakerController {
 	}
 	
 	public void cycleComplete () {
-		model.getPlate().getSensor().setStatus(PlateSensor.POT_NOT_EMPTY);
+		model.getPlate().getSensor().setStatus(PlateSensorStatus.POT_NOT_EMPTY);
 		model.getPlate().getHeater().on();
 	}
 	
 	public void placePotOut () {
-		model.getPlate().getSensor().setStatus(PlateSensor.WARMER_EMPTY);
+		model.getPlate().getSensor().setStatus(PlateSensorStatus.WARMER_EMPTY);
 		model.getPlate().getHeater().off();
 	}
 	public void placePotIn () {
 		retrieveCheckBox();	// al poner la jarra mediante GUI, usaremos checkBox??? u otro mecanismo??
-		if (model.getPlate().getSensor().getStatus() == PlateSensor.POT_NOT_EMPTY) {
+		if (model.getPlate().getSensor().getStatus() == PlateSensorStatus.POT_NOT_EMPTY) {
 			model.getPlate().getHeater().off();
 		}
 	}

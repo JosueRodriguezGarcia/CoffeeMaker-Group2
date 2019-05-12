@@ -6,7 +6,7 @@ public class Plate {
 	
 	public Plate () {
 		this.heater = new Heater();
-		this.sensor = new PlateSensor();
+		this.sensor = SensorFactory.make(SensorType.PLATE_SENSOR);
 	}
 
 	public Heater getHeater() {
