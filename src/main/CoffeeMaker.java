@@ -1,7 +1,6 @@
 package main;
 
 public class CoffeeMaker {
-	boolean isOn;
 	StartButton button;
 	LightIndicator light;
 	Filter filter;
@@ -9,7 +8,6 @@ public class CoffeeMaker {
 	Boiler boiler;
 
 	private CoffeeMaker (Builder builder) {
-		isOn = builder.isOn;
 		button = builder.button;
 		light = builder.light;
 		filter = builder.filter;
@@ -22,12 +20,6 @@ public class CoffeeMaker {
 
 
 	/* getters & setters */
-	public boolean getIsOn() {
-		return isOn;
-	}
-	public void setIsOn(boolean isOn) {
-		this.isOn = isOn;
-	}
 	public StartButton getButton() {
 		return this.button;
 	}
@@ -46,17 +38,14 @@ public class CoffeeMaker {
 	public void setFilter(Filter filter) {
 		this.filter = filter;
 	}
+	public void removeFilter() {
+		this.filter = null;
+	}
 	public Plate getPlate () {
 		return this.plate;
 	}
-	public void setPlate(Plate plate) {
-		this.plate = plate;
-	}
 	public Boiler getBoiler() {
 		return this.boiler;
-	}
-	public void setBoiler(Boiler boiler) {
-		this.boiler = boiler;
 	}
 	/* ***************** */
 
@@ -65,7 +54,6 @@ public class CoffeeMaker {
 
 	/* Mr. Builder */
 	public static class Builder {
-		boolean isOn;
 		StartButton button;
 		LightIndicator light;
 		Filter filter;
@@ -75,13 +63,8 @@ public class CoffeeMaker {
 		}
 		
 		public Builder () {
-			isOn = false;
 		}
 		
-		public Builder isOn (boolean isOn) { 
-			this.isOn = isOn; 
-			return this; 
-		}
 		public Builder button (StartButton button) { 
 			this.button = button; 
 			return this; 

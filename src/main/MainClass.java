@@ -9,10 +9,15 @@ public class MainClass {
 		/* **************** */
 		LightIndicator light = new LightIndicator();
 		StartButton button = new StartButton();
-		
+		Filter filter = new Filter();
+
+		/* Con filtro */
+		//CoffeeMaker model = new CoffeeMaker.Builder().button(button).light(light).filter(filter).build();
+		/* Sin filtro */
 		CoffeeMaker model = new CoffeeMaker.Builder().button(button).light(light).build();
 
-		
+
+
 		
 		
 		/* **************** */
@@ -31,14 +36,16 @@ public class MainClass {
 		CoffeeMakerController controller = new CoffeeMakerController(model, view);
 		
 		/* ¿Falta algo? */
+		/*
 		if (controller.missingComponents()) {
 			controller.popup();
 		} 
 		else {
 			controller.brewCycle();
+			//controller.listen();
 		}
-		
+		*/
 		
 	}
-
+	
 }
