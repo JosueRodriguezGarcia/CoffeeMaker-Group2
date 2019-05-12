@@ -12,35 +12,39 @@ public class CoffeeMakerController {
 		this.view = view;
 	}
 	
-	public boolean missingComponents () {
-		boolean missingComponents = true;
+	public boolean missingConditions () {
+		boolean missingConditions = true;
 		retrieveCheckBox();
 		
-		if (model.getBoiler().getValve().isOpen()) {
+		if (model.getBoiler().getValve().isOpen()) {	// 1. Is the relief valve open?
 			issueReport = "Error: Relief valve must be closed prior starting the brewing cycle!";
-			missingComponents = true;
+			missingConditions = true;
 		}
-		else if (model.getBoiler().getSensor().getStatus() == BoilerSensor.BOILER_EMPTY) { 
+		else if (model.getBoiler().getSensor().getStatus() == BoilerSensor.BOILER_EMPTY) { 	// 2. Is the boiler empty?
 			issueReport = "Error: Boiler is empty!";
-			missingComponents = true;
+			missingConditions = true;
 		}
-		else if (model.getFilter() == null) {
+		else if (model.getFilter() == null) {	// 3. No filter in the coffee maker?
 			issueReport = "Error: Filter not present!";
-			missingComponents = true;
+			missingConditions = true;
 		}
-		else if (!model.getFilter().getGroundsIn()) {
+		else if (!model.getFilter().getGroundsIn()) {	// 4. No coffee grounds inside the filter?
 			issueReport = "Error: No coffee grunds found!";
-			missingComponents = true;
+			missingConditions = true;
 		}
-		else if (model.getPlate().getSensor().getStatus() == PlateSensor.WARMER_EMPTY) {
+		else if (model.getPlate().getSensor().getStatus() == PlateSensor.WARMER_EMPTY) {	// 5. No pot on the plate/warmer? 
 			issueReport = "Error: No pot found!";
-			missingComponents = true;
+			missingConditions = true;
 		}
-		else if (model.getPlate().getSensor().getStatus() == PlateSensor.POT_EMPTY) {
+		else if (model.getPlate().getSensor().getStatus() == PlateSensor.POT_NOT_EMPTY) {	// 6. Isn't the pot empty?
 			issueReport = "Error: Pot is empty!";
-			missingComponents = true;
+			missingConditions = true;
 		}
-		return missingComponents;
+		else {
+			missingConditions = false;
+		}
+
+		return missingConditions;
 	}
 
 	public void brewCycle () {
@@ -73,24 +77,49 @@ public class CoffeeMakerController {
 	
 }
 
+/*VERIFICAR LAS CONDICIONES NECESARIAS
+ * 1. ¿Está la válvula abierta?
+ *    SI: Añadir mensaje de error.
+ *        Marcar bandera missingConditions como true. 
+ * 2. NO: ¿Está la caldera sin agua?
+ *        SI: Añadir mensaje de error.
+ *            Marcar bandera missingConditions como true.
+ * 3.     NO: ¿No Hay filtro en la cafetera?
+ *            SI: Añadir mensaje de error.
+ *                Marcar bandera missingConditions como true.
+ * 4.         NO: ¿No hay granos en el filtro?
+ *                SI: Añadir mensaje de error.
+ *                    Marcar bandera missingConditions como true.
+ * 5.             NO: ¿Está el plato sin jarra?
+ *                    SI: Añadir mensaje de error.
+ *                        Marcar bandera missingConditions como true.
+ * 6.                 NO: ¿Hay contenido en la jarra?
+ *                        SI: Añadir mensaje de error.
+ *                            Marcar bandera missingConditions como true.
+ *                        NO: Marcar bandera missingConditions como false.
+ * /
 
 
+/* INICIAR PREPARADO
+ * 1. Encender el indicador luminoso.
+ * 2. Encender la caldera
+ * 3. Animación del preparado.
+ * 4. Setear BoilerSensor con BOILER_EMPTY
+ * 5. Setear PlateSensor con POT_NOT_EMPTY
+ * 6. Apagar el indicador luminoso.
+ * 7. Encender el calentador del plato.
+ */
 
-/* EJEMPLO BASICO de proceso que deberia estar dentro de los metodos de CONTROLLER */
-//model.getIsOn();  	// ya no
-//model.getBoiler().getValve().isOpen();	// preguntar si la valvula esta cerrada, y... demas    pop-up nuevamente al panel
-//model.getBoiler().getSensor().getStatus(); // pregutnar si la caldera esta llena ... y demas
-//verificar filtro --> si hay granos
 
-//model.getPlate().getSensor().getStatus();	// preguntar si hay POT y que esta vacio? ... y demas
-//
-//model.getLightIndicator().on();	// si todo esta bien, prender la luz e iniciar el proceso
-// view.animate();
-//encender calentador
-//verificar si esta lleno;
-//
-//model.getLightIndicator().off();	// una vez terminado el proceso apagar la luz
-//
-// prender calentador del plato
-// averigurar retiros del pot, por ejemplo cuando la gente se sirve y luego devuelve el pot, puede devolver lleno, o no lleno, considerar eso tambien.
-/* ************************************************************************ */
+/* POST-PREPARADO
+ * 
+ * MIENTRAS no se cierre la ventana {
+ * ¿Escuchar si hay cambios?
+ * SI: Recuperar opciones de panel GUI.
+ *     ¿La jarra está ausente?
+ *     SI: Apagar PlateHeater 
+ *     NO: ¿La jarra está vacía?
+ *         SI: Apagar PlateHeater
+ * }
+ * 
+ */ 
