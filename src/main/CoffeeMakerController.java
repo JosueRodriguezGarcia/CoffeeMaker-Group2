@@ -16,7 +16,7 @@ public class CoffeeMakerController {
 		boolean missingConditions = true;
 		retrieveCheckBox();
 		
-		if (model.getBoiler().getValve().isOpen()) {	// 1. Is the relief valve open?
+		if (((PressureValve)model.getBoiler().getValve()).isOpen()) {	// 1. Is the relief valve open?
 			issueReport = "Error: Relief valve must be closed prior starting the brewing cycle!";
 			missingConditions = true;
 		}
@@ -61,7 +61,7 @@ public class CoffeeMakerController {
 		model.getPlate().getHeater().off();
 	}
 	public void placePotIn () {
-		retrieveCheckBox();	// al poner la jarra mediante GUI, usaremos checkBox??? u otro mecanismo??
+		retrieveCheckBox();	
 		if (model.getPlate().getSensor().getStatus() == PlateSensorStatus.POT_NOT_EMPTY) {
 			model.getPlate().getHeater().off();
 		}

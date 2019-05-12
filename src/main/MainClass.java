@@ -7,15 +7,19 @@ public class MainClass {
 		/* **************** */
 		/*       MODEL      */
 		/* **************** */
-		LightIndicator light = new LightIndicator();
-		StartButton button = new StartButton();
 		Filter filter = new Filter();
 
-		// Si hay o no hay filtro depende de las opciones elegidas en el panel.
-		/* Con filtro */
-		//CoffeeMaker model = new CoffeeMaker.Builder().button(button).light(light).filter(filter).build();
-		/* Sin filtro */
-		CoffeeMaker model = new CoffeeMaker.Builder().button(button).light(light).build();
+		// Whether model is instantiated with or without filter is up to values retrieved from GUI panel.
+		/* Filter present */
+		//CoffeeMaker model = new CoffeeMaker.Builder().button(new StartButton()).light(new LightIndicator()).filter(filter).build();
+		/* No Filter      */
+		CoffeeMaker model = new CoffeeMaker.Builder().button(new StartButton()).light(new LightIndicator()).build();
+		
+		/* Downcasting to Heater is required due to DeviceDriver Interface reference instantiation.
+		 * This is also needed with all classes implementing DeviceDriver and ValveDriver 
+		 * That is: Heater, LightIndicator, PressureValve
+		 */
+		//((Heater)model.getBoiler().getHeater()).getIsOn();
 		
 		
 		
@@ -24,8 +28,8 @@ public class MainClass {
 		/* **************** */
 		/*       VIEW       */
 		/* **************** */
-		// Algunos pasos previos si fuere necesario
-		//CoffeeMakerGui view = new CoffeeMakerGui();
+		// Preliminary steps if necessary.
+		CoffeeMakerGui view = new CoffeeMakerGui();
 		
 		
 		
@@ -34,15 +38,15 @@ public class MainClass {
 		/* **************** */
 		/*    CONTROLLER    */
 		/* **************** */
-		//CoffeeMakerController controller = new CoffeeMakerController(model, view);
+		CoffeeMakerController controller = new CoffeeMakerController(model, view);
 		
 		/*
 		if (controller.missingComponents()) { // ¿Is any ingredient missing?
-			controller.popup();
+			controller.popup();			// Display all errors found.
 		} 
 		else {	// If all the ingredients are present, let's start the brewing cycle
-			controller.brewCycle();		
-			//controller.listen();		// Listen to Pot activities: Out, In w/coffee, In wo/coffee.
+			controller.brewCycle();		// Operations during brewing cycle,		
+			controller.listen();		// Listen to Pot activities: Out, In w/coffee, In wo/coffee.
 		}
 		*/
 		

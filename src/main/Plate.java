@@ -1,7 +1,7 @@
 package main;
 
 public class Plate {
-	Heater heater;
+	DeviceDriver heater;
 	Sensor sensor;
 	
 	public Plate () {
@@ -9,7 +9,7 @@ public class Plate {
 		this.sensor = SensorFactory.make(SensorType.PLATE_SENSOR);
 	}
 
-	public Heater getHeater() {
+	public DeviceDriver getHeater() {
 		return heater;
 	}
 
