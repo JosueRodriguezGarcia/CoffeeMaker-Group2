@@ -2,14 +2,14 @@ package model;
 
 public class Boiler {
 	double pressure;
-	Heater heater;
-	Sensor sensor;
-	PressureValve valve;
+	IDeviceDriver heater;
+	ISensor sensor;
+	IValveDriver valve;
 	
 	public Boiler () {
 		pressure = 0.0;
-		this.heater = new BoilerHeater();
-		this.sensor = new BoilerSensor();
+		this.heater = new Heater();
+		this.sensor = SensorFactory.make(SensorType.BOILER_SENSOR);
 		this.valve = new PressureValve();
 	}
 
@@ -21,27 +21,15 @@ public class Boiler {
 		this.pressure = pressure;
 	}
 
-	public Heater getHeater() {
+	public IDeviceDriver getHeater() {
 		return heater;
 	}
 
-	public void setHeater(Heater heater) {
-		this.heater = heater;
-	}
-
-	public Sensor getSensor() {
+	public ISensor getSensor() {
 		return sensor;
 	}
 
-	public void setSensor(Sensor sensor) {
-		this.sensor = sensor;
-	}
-
-	public PressureValve getValve() {
+	public IValveDriver getValve() {
 		return valve;
-	}
-
-	public void setValve(PressureValve valve) {
-		this.valve = valve;
 	}
 }

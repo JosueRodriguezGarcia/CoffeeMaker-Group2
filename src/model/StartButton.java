@@ -7,11 +7,11 @@ public class StartButton {
 		isPushed = false;
 	}
 	
-	public boolean getIsPushed() {
+	boolean getIsPushed() {
 		return isPushed;
 	}
 	
-	public void setIsPushed(boolean isPushed) {
+	void setIsPushed(boolean isPushed) {
 		this.isPushed = isPushed;
 	}
 	

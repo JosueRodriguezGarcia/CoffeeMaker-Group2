@@ -1,13 +1,13 @@
 package model;
 
-public class LightIndicator implements DeviceDriver {
+public class LightIndicator implements IDeviceDriver {
 	boolean isOn;
 	
 	public LightIndicator() {
 		isOn = false;
 	}
 	
-	boolean isOn () {
+	public boolean getIsOn () {
 		return isOn;
 	}
 	
