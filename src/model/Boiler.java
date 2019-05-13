@@ -1,6 +1,7 @@
 package model;
 
 public class Boiler {
+<<<<<<< HEAD
 	double pressure;
 	Heater heater;
 	Sensor sensor;
@@ -44,4 +45,7 @@ public class Boiler {
 	public void setValve(PressureValve valve) {
 		this.valve = valve;
 	}
+=======
+
+>>>>>>> develop
 }
