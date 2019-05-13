@@ -16,7 +16,7 @@ public class CoffeeMakerController {
 		boolean missingConditions = true;
 		retrieveCheckBox();
 		
-		if (((PressureValve)model.getBoiler().getValve()).isOpen()) {	// 1. Is the relief valve open?
+		if (model.getBoiler().getValve().getIsOpen()) {	// 1. Is the relief valve open?
 			issueReport = "Error: Relief valve must be closed prior starting the brewing cycle!";
 			missingConditions = true;
 		}

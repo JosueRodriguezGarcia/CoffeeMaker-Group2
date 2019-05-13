@@ -7,7 +7,7 @@ public class PressureValve implements ValveDriver {
 		isOpen = false;
 	}
 
-	public boolean isOpen() {
+	public boolean getIsOpen() {
 		return isOpen;
 	}
 

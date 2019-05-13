@@ -8,7 +8,7 @@ public class Heater implements DeviceDriver {
 		isOn = false;
 	}
 	
-	boolean getIsOn () {
+	public boolean getIsOn () {
 		return isOn;
 	}
 	

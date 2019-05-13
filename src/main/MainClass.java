@@ -15,12 +15,6 @@ public class MainClass {
 		/* No Filter      */
 		CoffeeMaker model = new CoffeeMaker.Builder().button(new StartButton()).light(new LightIndicator()).build();
 		
-		/* Downcasting to Heater is required due to DeviceDriver Interface reference instantiation.
-		 * This is also needed with all classes implementing DeviceDriver and ValveDriver 
-		 * That is: Heater, LightIndicator, PressureValve
-		 */
-		//((Heater)model.getBoiler().getHeater()).getIsOn();
-		
 		
 		
 		
