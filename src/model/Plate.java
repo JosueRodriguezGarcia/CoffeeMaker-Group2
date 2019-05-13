@@ -1,7 +1,6 @@
 package model;
 
 public class Plate {
-<<<<<<< HEAD
 	Heater heater;
 	Sensor sensor;
 	
@@ -25,7 +24,4 @@ public class Plate {
 	public void setSensor(Sensor sensor) {
 		this.sensor = sensor;
 	}
-=======
-
->>>>>>> develop
 }

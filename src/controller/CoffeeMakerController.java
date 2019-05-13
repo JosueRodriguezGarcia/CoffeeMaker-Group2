@@ -64,7 +64,8 @@ public class CoffeeMakerController {
 		// Boiler header
 		view.getBoilerHeaderOnSubMenu().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				view.setBoilerHeaderOn();
+				view.setBoilerHeaterOn();
+				
 		    }
 		});
 		

@@ -4,7 +4,6 @@ public class CoffeeMaker {
 	private boolean isOn;
 	private StartButton button;
 	private LightIndicator light;
-<<<<<<< HEAD
 	private Filter filter;
 	private Plate plate;
 	private Boiler boiler;
@@ -93,14 +92,3 @@ public class CoffeeMaker {
 	/* ***************** 
 }
 */
-=======
-	private Plate plate;
-	private Boiler boiler;
-	public CoffeeMaker() {
-		isOn = false;
-	}
-	public boolean isOn() {
-		return isOn;
-	}
-}
->>>>>>> develop

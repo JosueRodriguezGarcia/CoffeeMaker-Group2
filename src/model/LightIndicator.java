@@ -1,6 +1,5 @@
 package model;
 
-<<<<<<< HEAD
 public class LightIndicator implements DeviceDriver {
 	boolean isOn;
 	
@@ -19,8 +18,4 @@ public class LightIndicator implements DeviceDriver {
 	public void on() {
 		isOn = true;
 	}
-=======
-public class LightIndicator {
-
->>>>>>> develop
 }
