@@ -1,13 +1,13 @@
 package model;
 
-public class PressureValve implements ValveDriver {
+public class PressureValve implements IValveDriver {
 	boolean isOpen;
 	
 	public PressureValve () {
 		isOpen = false;
 	}
 
-	public boolean isOpen() {
+	public boolean getIsOpen() {
 		return isOpen;
 	}
 

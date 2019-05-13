@@ -1,23 +1,19 @@
 package model;
 
-public abstract class Heater implements DeviceDriver {
+public class Heater implements IDeviceDriver {
 	boolean isOn;
-	Sensor sensor;
+	ISensor sensor;
 	
 	public Heater () {
 		isOn = false;
 	}
 	
-	boolean isOn () {
+	public boolean getIsOn () {
 		return isOn;
 	}
 	
-	Sensor getSensor () {
+	public ISensor getSensor () {
 		return sensor;
-	}
-	
-	void setSensor (Sensor sensor) {
-		this.sensor = sensor;
 	}
 	
 	public void off() {
