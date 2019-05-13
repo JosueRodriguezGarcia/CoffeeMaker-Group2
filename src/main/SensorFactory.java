@@ -9,6 +9,9 @@ abstract public class SensorFactory {
 		case BOILER_SENSOR: 
 			return new BoilerSensor();
 
+		case FILTER_SENSOR: 
+			return new BoilerSensor();
+
 		default:
 			return null;
 		}

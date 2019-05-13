@@ -24,11 +24,11 @@ public class CoffeeMakerController {
 			issueReport = "Error: Boiler is empty!";
 			missingConditions = true;
 		}
-		else if (model.getFilter() == null) {	// 3. No filter in the coffee maker?
+		else if (model.getSensor().getStatus() == FilterSensorStatus.NO_FILTER) {	// 3. No filter in the coffee maker?
 			issueReport = "Error: Filter not present!";
 			missingConditions = true;
 		}
-		else if (!model.getFilter().getGroundsIn()) {	// 4. No coffee grounds inside the filter?
+		else if (model.getSensor().getStatus() == FilterSensorStatus.FILTER_EMPTY) {	// 4. No coffee grounds inside the filter?
 			issueReport = "Error: No coffee grunds found!";
 			missingConditions = true;
 		}

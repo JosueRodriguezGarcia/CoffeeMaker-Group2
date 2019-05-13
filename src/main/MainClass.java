@@ -7,14 +7,13 @@ public class MainClass {
 		/* **************** */
 		/*       MODEL      */
 		/* **************** */
-		Filter filter = new Filter();
-
 		// Whether model is instantiated with or without filter is up to values retrieved from GUI panel.
 		/* Filter present */
 		//CoffeeMaker model = new CoffeeMaker.Builder().button(new StartButton()).light(new LightIndicator()).filter(filter).build();
 		/* No Filter      */
-		CoffeeMaker model = new CoffeeMaker.Builder().button(new StartButton()).light(new LightIndicator()).build();
-		
+		//CoffeeMaker model = new CoffeeMaker.Builder().button(new StartButton()).light(new LightIndicator()).build();
+		/* Default state */
+		CoffeeMaker model = new CoffeeMaker.Builder().build();
 		
 		
 		
