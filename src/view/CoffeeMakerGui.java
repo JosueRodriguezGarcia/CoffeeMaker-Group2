@@ -213,13 +213,13 @@ public class CoffeeMakerGui extends JFrame {
 	}
 
 	public void configBoilerHeater() {
-		setBoilerHeaterOn();
+		setBoilerHeaderOff();
 		boilerHeader.setBounds(95, 341, 201, 117);
 		add(boilerHeader);
 	}
 
 	public void configPlateHeater() {
-		setPlateHeaderOn();
+		setPlateHeaderOff();
 		plateHeader.setBounds(409, 360, 201, 117);
 		add(plateHeader);
 	}

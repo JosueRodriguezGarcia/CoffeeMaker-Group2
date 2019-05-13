@@ -5,9 +5,11 @@ import view.CoffeeMakerGui;
 
 public class CoffeMakerMarkIV {
 	public static void main(String[] args) {
-		CoffeeMakerSimulatorModel myModel = new CoffeeMakerSimulatorModel();
-		CoffeeMakerGui myView = new CoffeeMakerGui();				
-		CoffeeMakerController myController = new CoffeeMakerController(myModel, myView);
+		CoffeeMaker myModel = new CoffeeMaker();
+		//CoffeeMakerGui myView = new CoffeeMakerGui();				
+		//CoffeeMakerController myController = new CoffeeMakerController(myModel, myView);
+		myModel.getLight().on();
+		
 		//adding behavior
 	}
 }
