@@ -1,6 +1,6 @@
 package main;
 
-public interface ValveDriver {
+public interface IValveDriver {
 	boolean getIsOpen();
 	void open();
 	void close();

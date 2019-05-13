@@ -1,6 +1,6 @@
 package main;
 
-public class PlateSensor implements Sensor {
+public class PlateSensor implements ISensor {
 	PlateSensorStatus status;
 	
 	public PlateSensor() {
@@ -11,7 +11,7 @@ public class PlateSensor implements Sensor {
 		return this.status;
 	}
 	
-	public void setStatus(SensorStatus status) {
+	public void setStatus(ISensorStatus status) {
 		this.status = (PlateSensorStatus) status;
 	}
 }

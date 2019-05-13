@@ -2,7 +2,7 @@ package main;
 
 public class CoffeeMaker {
 	StartButton button;
-	DeviceDriver light;
+	IDeviceDriver light;
 	Filter filter;
 	Plate plate;
 	Boiler boiler;
@@ -23,14 +23,8 @@ public class CoffeeMaker {
 	public StartButton getButton() {
 		return this.button;
 	}
-	public void setButton(StartButton button) {
-		this.button = button;
-	}
-	public DeviceDriver getLightIndicator() {
+	public IDeviceDriver getLight() {
 		return this.light;
-	}
-	public void setLightIndicator(LightIndicator light) {
-		this.light = light;
 	}
 	public Filter getFilter() {
 		return filter;
@@ -48,6 +42,7 @@ public class CoffeeMaker {
 		return this.boiler;
 	}
 	/* ***************** */
+
 
 
 

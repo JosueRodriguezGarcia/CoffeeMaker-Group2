@@ -1,6 +1,6 @@
 package main;
 
-public interface DeviceDriver {
+public interface IDeviceDriver {
 	boolean getIsOn();
 	void off();
 	void on();

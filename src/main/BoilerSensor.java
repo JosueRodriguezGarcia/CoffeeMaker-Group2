@@ -1,6 +1,6 @@
 package main;
 
-public class BoilerSensor implements Sensor {
+public class BoilerSensor implements ISensor {
 	BoilerSensorStatus status;
 
 	public BoilerSensor() {
@@ -11,7 +11,7 @@ public class BoilerSensor implements Sensor {
 		return status;
 	}
 	
-	public void setStatus(SensorStatus status) {
+	public void setStatus(ISensorStatus status) {
 		this.status = (BoilerSensorStatus) status;
 	}
 }

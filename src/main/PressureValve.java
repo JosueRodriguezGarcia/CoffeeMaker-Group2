@@ -1,6 +1,6 @@
 package main;
 
-public class PressureValve implements ValveDriver {
+public class PressureValve implements IValveDriver {
 	boolean isOpen;
 	
 	public PressureValve () {

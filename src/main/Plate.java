@@ -1,19 +1,19 @@
 package main;
 
 public class Plate {
-	DeviceDriver heater;
-	Sensor sensor;
+	IDeviceDriver heater;
+	ISensor sensor;
 	
 	public Plate () {
 		this.heater = new Heater();
 		this.sensor = SensorFactory.make(SensorType.PLATE_SENSOR);
 	}
 
-	public DeviceDriver getHeater() {
+	public IDeviceDriver getHeater() {
 		return heater;
 	}
 
-	public Sensor getSensor() {
+	public ISensor getSensor() {
 		return sensor;
 	}
 }

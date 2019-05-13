@@ -1,8 +1,8 @@
 package main;
 
-public class Heater implements DeviceDriver {
+public class Heater implements IDeviceDriver {
 	boolean isOn;
-	Sensor sensor;
+	ISensor sensor;
 	
 	public Heater () {
 		isOn = false;
@@ -12,7 +12,7 @@ public class Heater implements DeviceDriver {
 		return isOn;
 	}
 	
-	public Sensor getSensor () {
+	public ISensor getSensor () {
 		return sensor;
 	}
 	

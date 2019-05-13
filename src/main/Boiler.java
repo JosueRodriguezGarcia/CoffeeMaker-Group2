@@ -2,9 +2,9 @@ package main;
 
 public class Boiler {
 	double pressure;
-	DeviceDriver heater;
-	Sensor sensor;
-	ValveDriver valve;
+	IDeviceDriver heater;
+	ISensor sensor;
+	IValveDriver valve;
 	
 	public Boiler () {
 		pressure = 0.0;
@@ -21,15 +21,15 @@ public class Boiler {
 		this.pressure = pressure;
 	}
 
-	public DeviceDriver getHeater() {
+	public IDeviceDriver getHeater() {
 		return heater;
 	}
 
-	public Sensor getSensor() {
+	public ISensor getSensor() {
 		return sensor;
 	}
 
-	public ValveDriver getValve() {
+	public IValveDriver getValve() {
 		return valve;
 	}
 }

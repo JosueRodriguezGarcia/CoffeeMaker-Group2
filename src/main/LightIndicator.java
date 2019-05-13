@@ -1,6 +1,6 @@
 package main;
 
-public class LightIndicator implements DeviceDriver {
+public class LightIndicator implements IDeviceDriver {
 	boolean isOn;
 	
 	public LightIndicator() {
