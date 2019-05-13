@@ -16,9 +16,9 @@ public class CoffeeMakerGui extends JFrame {
 	final String OPEN_VALVE = "resources/open.png";
 	final String CLOSED_VALVE = "resources/closed.png";
 	final String POT = "resources/pot.png";
-	final String POT_EMPTY = "resources/pot.png";
+	final String POT_EMPTY = "resources/potEmpty.png";
 	final String POT_NOT_EMPTY = "resources/pot.png";
-	final String FILTER = "resources/filter.png";
+	final String FILTER = "resources/filterEmpty.png";
 	final String NOT_WATER = "resources/notWater.png";
 	final String WATER = "resources/Water.png";
 	final String COFFEE = "resources/coffee.png";
@@ -68,10 +68,10 @@ public class CoffeeMakerGui extends JFrame {
 		panel_1.add(coffee);
 		
 		water.setIcon(new ImageIcon(NOT_WATER));
-		water.setBounds(31, 93, 212, 297);
+		water.setBounds(31, 90, 212, 297);
 		panel_1.add(water);
 		
-		//pot.setIcon(new ImageIcon(POT));
+		pot.setIcon(new ImageIcon(POT_EMPTY));
 		pot.setBounds(330, 223, 250, 185);
 		panel_1.add(pot);
 		
