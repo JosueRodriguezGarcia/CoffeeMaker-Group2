@@ -4,7 +4,7 @@ public class BoilerSensor implements ISensor {
 	BoilerSensorStatus status;
 
 	public BoilerSensor() {
-		this.status = BoilerSensorStatus.BOILER_EMPTY;
+		this.status = BoilerSensorStatus.BOILER_NOT_EMPTY;
 	}
 	
 	public BoilerSensorStatus getStatus() {

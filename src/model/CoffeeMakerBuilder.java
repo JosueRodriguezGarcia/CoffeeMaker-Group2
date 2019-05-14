@@ -8,7 +8,7 @@ public abstract class CoffeeMakerBuilder {
 	}
 	
 	public void createCoffeeMaker() {
-		coffeeMaker = new CoffeeMaker();
+		//coffeeMaker = new CoffeeMaker();
 	}
 	
 	public abstract void buildStartButton();

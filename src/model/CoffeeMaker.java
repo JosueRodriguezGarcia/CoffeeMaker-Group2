@@ -7,7 +7,7 @@ public class CoffeeMaker {
 	Plate plate;
 	Boiler boiler;
 
-	private CoffeeMaker (Builder builder) {
+	public CoffeeMaker () {
 		button = new StartButton();
 		light = new LightIndicator();
 		sensor = new FilterSensor();
@@ -39,8 +39,9 @@ public class CoffeeMaker {
 
 
 
-
+	
 	/* Mr. Builder */
+	/*
 	public static class Builder {
 		StartButton button;
 		LightIndicator light;
@@ -66,4 +67,5 @@ public class CoffeeMaker {
 			return this; 
 		}
 	}
+	*/
 }

@@ -14,8 +14,6 @@ public class CoffeeMakerGui extends JFrame {
 	final String OPEN_VALVE = "resources/open.png";
 	final String CLOSED_VALVE = "resources/closed.png";
 	final String POT = "resources/pot.png";
-	// final String POT_EMPTY = "resources/pot.png";
-	// final String POT_NOT_EMPTY = "resources/pot.png";
 	final String FILTER = "resources/filter.png";
 	final String NOT_WATER = "resources/notWater.png";
 	final String WATER = "resources/Water.png";
@@ -94,7 +92,8 @@ public class CoffeeMakerGui extends JFrame {
 	private JMenuItem valveCloseSubMenu;
 
 	public CoffeeMakerGui() {
-		// Inicialiazacion del los elementos
+		
+		// Initialization of varibles.
 		background = new JPanel();
 		coffeeMaker = new JLabel();
 		valve = new JLabel();
@@ -113,7 +112,6 @@ public class CoffeeMakerGui extends JFrame {
 		plateHeader = new JLabel();
 
 		configMouseIcon();
-
 		configCoffeeMakerGui();
 		configButton();
 		configBrew();
@@ -124,14 +122,12 @@ public class CoffeeMakerGui extends JFrame {
 		configBoilerHeater();
 		configWaiterSensor();
 		configWater();
-		// configCoffee();
 		configCoffeMakerMenu();
 		configBoiler();
 		configBoilerHeater();
 		configPlateHeater();
 		configPlateSensor();
 		configCoffeeMaker();
-
 		setVisible(true);
 	}
 
@@ -213,13 +209,13 @@ public class CoffeeMakerGui extends JFrame {
 	}
 
 	public void configBoilerHeater() {
-		setBoilerHeaterOn();
+		setBoilerHeaderOff();
 		boilerHeader.setBounds(95, 341, 201, 117);
 		add(boilerHeader);
 	}
 
 	public void configPlateHeater() {
-		setPlateHeaderOn();
+		setPlateHeaderOff();
 		plateHeader.setBounds(409, 360, 201, 117);
 		add(plateHeader);
 	}
@@ -371,7 +367,6 @@ public class CoffeeMakerGui extends JFrame {
 	public void configCoffeeMakerGui() {
 		setTitle("COFFEE MAKER");
 		setLayout(null);
-		// setBounds(100, 100, 700, 520);
 		setSize(700, 520);
 		setLocation(Toolkit.getDefaultToolkit().getScreenSize().width / 2 - this.getSize().width / 2,
 				Toolkit.getDefaultToolkit().getScreenSize().height / 2 - this.getSize().height / 2);
@@ -426,10 +421,6 @@ public class CoffeeMakerGui extends JFrame {
 		pot.setIcon(new ImageIcon(POT));
 	}
 
-	/*
-	 * public void configCoffee() { coffee.setIcon(new ImageIcon(COFFEE));
-	 * coffee.setBounds(341, 283, 201, 117); //add(coffee); }
-	 */
 	public JLabel getCoffee() {
 		return coffee;
 	}

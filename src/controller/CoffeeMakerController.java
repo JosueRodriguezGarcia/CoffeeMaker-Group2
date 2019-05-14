@@ -16,31 +16,36 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 
+import model.BoilerSensor;
+import model.BoilerSensorStatus;
 import model.CoffeeMaker;
 import model.CoffeeMakerBuilder;
 import model.CoffeeMakerSimulatorModel;
 import model.MarkIVCoffeeMakerBuilder;
+import model.PlateSensorStatus;
 import view.CoffeeMakerGui;
 
 public class CoffeeMakerController {
 	
-	private CoffeeMakerSimulatorModel coffeeMakerSimulator;
+	private CoffeeMaker model;
 	private CoffeeMakerGui view;
 
-	public CoffeeMakerController(CoffeeMakerSimulatorModel model, CoffeeMakerGui view) {
+	public CoffeeMakerController(CoffeeMaker model, CoffeeMakerGui view) {
 		this.view = view;
+		this.model = model;
 		addCoffeeMakerListeners();
-		initCoffeeMakerSimulator();
+		//initCoffeeMakerSimulator();
 	}
 	
 	// Init the CoffeeSimulator
+	/*
 	public void initCoffeeMakerSimulator() {
-		coffeeMakerSimulator = new CoffeeMakerSimulatorModel();
+		model = new CoffeeMakerSimulatorModel();
 		CoffeeMakerBuilder coffeeMakerBuilder = new MarkIVCoffeeMakerBuilder(); 
-		coffeeMakerSimulator.setCoffeeMakerBuilder(coffeeMakerBuilder);
-		CoffeeMaker MarkIVcoffeeMaker = coffeeMakerSimulator.getCoffeeMaker();
+		model.setCoffeeMakerBuilder(coffeeMakerBuilder);
+		CoffeeMaker MarkIVcoffeeMaker = model.getCoffeeMaker();
 	}	
-	
+	*/
 	// Adding the Mouse Listeners 
 	public void addCoffeeMakerListeners() {		
 		//adding Menus events
@@ -134,20 +139,18 @@ public class CoffeeMakerController {
 
 	// Delegating the ContextMenu Listener to the View
 	class PopupListener extends MouseAdapter {
-	      public void mousePressed(MouseEvent ev) {
-	    	  if (ev.isPopupTrigger()) {
-	    		  view.getCoffeeMakerMenu().show(ev.getComponent(), ev.getX(), ev.getY());
+	      public void mousePressed(MouseEvent e) {
+	    	  if (e.isPopupTrigger()) {
+	    		  view.getCoffeeMakerMenu().show(e.getComponent(), e.getX(), e.getY());
 	    	  }
 	      }
 
-	      public void mouseReleased(MouseEvent ev) {
-	    	  if (ev.isPopupTrigger()) {
-	    		  view.getCoffeeMakerMenu().show(ev.getComponent(), ev.getX(), ev.getY());
+	      public void mouseReleased(MouseEvent e) {
+	    	  if (e.isPopupTrigger()) {
+	    		  view.getCoffeeMakerMenu().show(e.getComponent(), e.getX(), e.getY());
 	    	  }
 	      }
 
-	      public void mouseClicked(MouseEvent ev) {
-	      }
 	}
 	
 	// Delegating the StartButton Listener
@@ -161,7 +164,9 @@ public class CoffeeMakerController {
         Thread worker = new Thread() {
           public void run() {
         	  //All here all operations that are in progress
-        	  view.setPotInProgress();        	  
+        	  view.setPotInProgress();
+        	  view.setBoilerHeaterOn();
+        	  model.getBoiler().getHeater().on();
             try {
               Thread.sleep(3000);
             } catch (InterruptedException ex) {
@@ -171,7 +176,23 @@ public class CoffeeMakerController {
               public void run() {
             	  //All here all operations that are completed.
             	  view.setBrewCompleted();
+            	  model.getLight().on();
+          
             	  view.setPotCompleted();
+            	  model.getPlate().getSensor().setStatus(PlateSensorStatus.POT_NOT_EMPTY);
+            	  
+            	  view.setWaterSensorAsBoilerEmpty();
+            	  view.setCleanWater();
+            	  model.getBoiler().getSensor().setStatus(BoilerSensorStatus.BOILER_EMPTY);
+            	  
+            	  view.setValveOpened();
+            	  model.getBoiler().getValve().close();
+            	  
+            	  view.setBoilerHeaderOff();
+            	  model.getBoiler().getHeater().off();
+            	  
+            	  view.setPlateHeaderOn();
+            	  model.getPlate().getHeater().on();
               }
             });
           }
@@ -204,88 +225,4 @@ public class CoffeeMakerController {
 		}
 	}
 	
-
-	/*
-	public void waterHeating(){
-		if (model.getBoiler().getSensor().getStatus() == 1) {
-			model.getBoiler().getValve().open();
-			model.getBoiler().getHeater().on();			
-		}
-	}
-	
-	*/
-	/*
-	public void stoppingHeatingWater() {
-		model.getBoiler().getValve().isOpen();
-		model.getBoiler().getHeater().off();
-	}
-	*/	
-	/*
-	void warmingPot() {
-		if (model.getPlate().getSensor().getStatus() == 2) {
-			model.getPlate().getHeater().on();
-		}
-	}
-/*
-	// ****
-	void puttingPot() {
-		model.getPlate().getSensor().setStatus(1);
-	}
-
-	void removingPot() {
-		model.getPlate().getSensor().setStatus(0);
-	}
-
-	void stopWarmingPot() {
-		model.getPlate().getHeater().off();
-	}
-	
-	//CoffeeMaker
-	
-	public void Start() {
-		model.getPlate().getSensor().getStatus();
-
-		if (model.getPlate().getSensor().getStatus() == 0 ) {
-			model.getButton().setIsPushed(true);
-			view.configButton();
-			startPrepared();
-			if (drippingCoffee() == true) {
-				view.placePot();
-				view.configCoffee();
-				view.configFilter();
-				model.getLightIndicator().on();
-			}
-		}
-
-	}
-
-	public void startPrepared() {
-		if (model.getBoiler().getSensor().getStatus() == 1) {
-			model.getBoiler().getValve().open();
-			model.getBoiler().getHeater().on();			
-		}
-	}
-
-	public boolean drippingCoffee() {
-		stoppingFlowWater();
-		return true;
-	}
-
-	public void stoppingFlowWater() {
-		model.getBoiler().getValve().isOpen();
-		model.getBoiler().getHeater().off();
-		
-	}
-
-	public void verificar() {
-	}
-
-	public void comenzar() {
-
-	}
-
-	public void reportarProblema() {
-
-	}
-*/
 }
