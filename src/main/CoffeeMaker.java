@@ -3,14 +3,14 @@ package main;
 public class CoffeeMaker {
 	StartButton button;
 	IDeviceDriver light;
-	Filter filter;
+	ISensor sensor;
 	Plate plate;
 	Boiler boiler;
 
 	private CoffeeMaker (Builder builder) {
-		button = builder.button;
-		light = builder.light;
-		filter = builder.filter;
+		button = new StartButton();
+		light = new LightIndicator();
+		sensor = new FilterSensor();
 		plate = new Plate();
 		boiler = new Boiler();
 	}
@@ -26,14 +26,8 @@ public class CoffeeMaker {
 	public IDeviceDriver getLight() {
 		return this.light;
 	}
-	public Filter getFilter() {
-		return filter;
-	}
-	public void setFilter(Filter filter) {
-		this.filter = filter;
-	}
-	public void removeFilter() {
-		this.filter = null;
+	public ISensor getSensor() {
+		return sensor;
 	}
 	public Plate getPlate () {
 		return this.plate;
@@ -46,12 +40,11 @@ public class CoffeeMaker {
 
 
 
-
 	/* Mr. Builder */
 	public static class Builder {
 		StartButton button;
 		LightIndicator light;
-		Filter filter;
+		FilterSensor sensor;
 
 		public CoffeeMaker build() {
 			return new CoffeeMaker(this);
@@ -68,10 +61,9 @@ public class CoffeeMaker {
 			this.light = light; 
 			return this; 
 		}
-		public Builder filter (Filter filter) { 
-			this.filter = filter; 
+		public Builder sensor (FilterSensor sensor) { 
+			this.sensor = sensor; 
 			return this; 
 		}
 	}
-	/* ***************** */
 }
