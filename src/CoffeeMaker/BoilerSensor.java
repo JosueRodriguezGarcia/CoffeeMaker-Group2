@@ -1,4 +1,4 @@
-package model;
+package CoffeeMaker;
 
 public class BoilerSensor implements ISensor {
 	BoilerSensorStatus status;

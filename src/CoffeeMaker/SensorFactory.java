@@ -1,4 +1,4 @@
-package model;
+package CoffeeMaker;
 
 abstract public class SensorFactory {
 	public static ISensor make(SensorType sensorType) {

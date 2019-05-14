@@ -1,4 +1,4 @@
-package model;
+package CoffeeMaker;
 
 public interface ISensor {
 	public ISensorStatus getStatus();

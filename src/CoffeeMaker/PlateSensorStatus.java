@@ -1,4 +1,4 @@
-package model;
+package CoffeeMaker;
 
 public enum PlateSensorStatus implements ISensorStatus {
 	WARMER_EMPTY,

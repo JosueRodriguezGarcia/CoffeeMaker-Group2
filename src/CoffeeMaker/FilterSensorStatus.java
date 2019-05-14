@@ -1,4 +1,4 @@
-package model;
+package CoffeeMaker;
 
 public enum FilterSensorStatus implements ISensorStatus {
 	NO_FILTER,

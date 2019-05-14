@@ -1,4 +1,4 @@
-package model;
+package CoffeeMaker;
 
 public class PressureValve implements IValveDriver {
 	boolean isOpen;

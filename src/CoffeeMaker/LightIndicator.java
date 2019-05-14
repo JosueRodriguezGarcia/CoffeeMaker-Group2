@@ -1,4 +1,4 @@
-package model;
+package CoffeeMaker;
 
 public class LightIndicator implements IDeviceDriver {
 	boolean isOn;

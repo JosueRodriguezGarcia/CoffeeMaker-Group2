@@ -1,4 +1,4 @@
-package model;
+package CoffeeMaker;
 
 public interface IDeviceDriver {
 	boolean getIsOn();

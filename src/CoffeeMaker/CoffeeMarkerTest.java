@@ -1,9 +1,4 @@
-package test;
-
-
-
-
-import model.*;
+package CoffeeMaker;
 
 public class CoffeeMarkerTest {
 	/*CoffeeMaker coffee = new CoffeeMaker();

@@ -1,4 +1,4 @@
-package model;
+package CoffeeMaker;
 
 public class PlateSensor implements ISensor {
 	PlateSensorStatus status;

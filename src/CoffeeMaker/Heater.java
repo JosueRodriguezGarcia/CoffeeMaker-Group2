@@ -1,4 +1,4 @@
-package model;
+package CoffeeMaker;
 
 public class Heater implements IDeviceDriver {
 	boolean isOn;

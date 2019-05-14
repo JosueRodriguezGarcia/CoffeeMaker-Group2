@@ -1,4 +1,4 @@
-package model;
+package CoffeeMaker;
 
 public enum SensorType {
 	PLATE_SENSOR,

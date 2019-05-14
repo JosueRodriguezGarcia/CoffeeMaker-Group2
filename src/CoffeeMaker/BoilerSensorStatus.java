@@ -1,4 +1,4 @@
-package model;
+package CoffeeMaker;
 
 public enum BoilerSensorStatus implements ISensorStatus {
 	BOILER_EMPTY,

@@ -1,4 +1,4 @@
-package model;
+package CoffeeMaker;
 
 public class Plate {
 	IDeviceDriver heater;
