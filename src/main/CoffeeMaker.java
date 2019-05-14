@@ -8,18 +8,18 @@ public class CoffeeMaker {
 	Boiler boiler;
 
 	private CoffeeMaker (Builder builder) {
-		button = new StartButton();
-		light = new LightIndicator();
-		sensor = new FilterSensor();
-		plate = new Plate();
-		boiler = new Boiler();
+		button = builder.button;
+		light = builder.light;
+		sensor = builder.sensor;
+		plate = builder.plate;
+		boiler = builder.boiler;
 	}
 
 
 
 
 
-	/* getters & setters */
+	/* getters */
 	public StartButton getButton() {
 		return this.button;
 	}
@@ -45,6 +45,8 @@ public class CoffeeMaker {
 		StartButton button;
 		LightIndicator light;
 		FilterSensor sensor;
+		Plate plate;
+		Boiler boiler;
 
 		public CoffeeMaker build() {
 			return new CoffeeMaker(this);
@@ -63,6 +65,14 @@ public class CoffeeMaker {
 		}
 		public Builder sensor (FilterSensor sensor) { 
 			this.sensor = sensor; 
+			return this; 
+		}
+		public Builder plate (Plate plate) { 
+			this.plate = plate; 
+			return this; 
+		}
+		public Builder boiler (Boiler boiler) { 
+			this.boiler = boiler; 
 			return this; 
 		}
 	}
