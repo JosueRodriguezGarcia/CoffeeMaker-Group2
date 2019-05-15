@@ -33,15 +33,19 @@ public class CoffeeMakerGui extends JFrame {
 	final String BOILER_NOT_EMPTY = "resources/boilerNotEmpty.png";
 	final String BOILER_EMPTY = "resources/boilerEmpty.png";
 
-	final String BOILER_HEADER_ON = "resources/boilerHeaterOn.png";
-	final String BOILER_HEADER_OFF = "resources/boilerHeaterOff.png";
+	final String BOILER_HEATER_ON = "resources/boilerHeaterOn.png";
+	final String BOILER_HEATER_OFF = "resources/boilerHeaterOff.png";
 
-	final String PLATE_HEADER_ON = "resources/plateHeaterOn.png";
-	final String PLATE_HEADER_OFF = "resources/plateHeaterOff.png";
+	final String PLATE_HEATER_ON = "resources/plateHeaterOn.png";
+	final String PLATE_HEATER_OFF = "resources/plateHeaterOff.png";
 
-	final String PLATE_HEADER_POT_EMPTY = "resources/potEmpty_plateSensor.png";
-	final String PLATE_HEADER_POT_NOT_EMPTY = "resources/potNotEmpty_plateSensor.png";
-	final String PLATE_HEADER_WARMER_EMPTY = "resources/warmerEmpty_plateSensor.png";
+	final String PLATE_SENSOR_POT_EMPTY = "resources/potEmpty_plateSensor.png";
+	final String PLATE_SENSOR_POT_NOT_EMPTY = "resources/potNotEmpty_plateSensor.png";
+	final String PLATE_SENSOR_WARMER_EMPTY = "resources/warmerEmpty_plateSensor.png";
+
+	final String FILTER_EMPTY = "resources/filterEmpty.png";
+	final String FILTER_NOT_EMPTY = "resources/filterNotEmpty.png";
+	final String FILTER_RAISED = "";
 
 	// creacion del panel que contenera todos los elementos.
 	private JPanel background;
@@ -53,8 +57,8 @@ public class CoffeeMakerGui extends JFrame {
 	private JLabel waterSensor;
 	private JLabel plateSensor;
 	private JLabel boiler;
-	private JLabel boilerHeader;
-	private JLabel plateHeader;
+	private JLabel boilerHeater;
+	private JLabel plateHeater;
 	private JLabel filter;
 	private JLabel pot;
 	private JLabel coffee;
@@ -80,19 +84,24 @@ public class CoffeeMakerGui extends JFrame {
 	private JMenu potMenu;
 	private JMenuItem putThePotsubMenu;
 	private JMenuItem raisethePotsubMenu;
-	private JMenuItem emptyThePotsubMenu;
+	// private JMenuItem emptyThePotsubMenu;
 	private JMenuItem fillThePotSubMenu;
 
-	private JMenu plateHeaderMenu;
-	private JMenuItem plateHeaderOnSubMenu;
-	private JMenuItem plateHeaderOffSubMenu;
+	private JMenu filterMenu;
+	private JMenuItem putTheFiltersubMenu;
+	private JMenuItem raisetheFiltersubMenu;
+	private JMenuItem fillTheFilterSubMenu;
+
+	private JMenu plateHeaterMenu;
+	private JMenuItem plateHeaterOnSubMenu;
+	private JMenuItem plateHeaterOffSubMenu;
 
 	private JMenu valveMenu;
 	private JMenuItem valveOpenSubMenu;
 	private JMenuItem valveCloseSubMenu;
 
 	public CoffeeMakerGui() {
-		
+
 		// Initialization of varibles.
 		background = new JPanel();
 		coffeeMaker = new JLabel();
@@ -108,15 +117,15 @@ public class CoffeeMakerGui extends JFrame {
 		start = new JButton();
 		brew = new JLabel();
 		boiler = new JLabel();
-		boilerHeader = new JLabel();
-		plateHeader = new JLabel();
+		boilerHeater = new JLabel();
+		plateHeater = new JLabel();
 
 		configMouseIcon();
 		configCoffeeMakerGui();
 		configButton();
 		configBrew();
 		configValve();
-		configCoffeeGrounds();
+		//configCoffeeGrounds();
 		configFilter();
 		configPot();
 		configBoilerHeater();
@@ -124,7 +133,6 @@ public class CoffeeMakerGui extends JFrame {
 		configWater();
 		configCoffeMakerMenu();
 		configBoiler();
-		configBoilerHeater();
 		configPlateHeater();
 		configPlateSensor();
 		configCoffeeMaker();
@@ -140,43 +148,37 @@ public class CoffeeMakerGui extends JFrame {
 		coffeeMakerMenu = new JPopupMenu();
 
 		// boiler and its water
-		boilerMenu = new JMenu("   Boiler");
+		boilerMenu = new JMenu("Boiler");
 		cleanWatersubMenu = new JMenuItem("Clean Water");
 		fillWaterSubMenu = new JMenuItem("Fill Water");
 		boilerMenu.add(cleanWatersubMenu);
 		boilerMenu.add(fillWaterSubMenu);
 		coffeeMakerMenu.add(boilerMenu);
 
-		// boiler Heater
-		boilerHeaterMenu = new JMenu("   Boiler Heater");
-		boilerHeaterOnSubMenu = new JMenuItem("Turn On");
-		boilerHeaterOffSubMenu = new JMenuItem("Turn Off");
-		boilerHeaterMenu.add(boilerHeaterOnSubMenu);
-		boilerHeaterMenu.add(boilerHeaterOffSubMenu);
-		coffeeMakerMenu.add(boilerHeaterMenu);
-
-		// boiler and its water
-		potMenu = new JMenu("   Pot");
-		putThePotsubMenu = new JMenuItem("Put an Empty Put");
+		// pot and its coffee
+		potMenu = new JMenu("Pot");
+		putThePotsubMenu = new JMenuItem("Empty Put");
 		raisethePotsubMenu = new JMenuItem("Raise the put");
 		fillThePotSubMenu = new JMenuItem("Add coffee");
-		emptyThePotsubMenu = new JMenuItem("Empty the coffee");
+		// emptyThePotsubMenu = new JMenuItem("Empty the coffee");
 		potMenu.add(putThePotsubMenu);
 		potMenu.add(raisethePotsubMenu);
 		potMenu.add(fillThePotSubMenu);
-		potMenu.add(emptyThePotsubMenu);
+		// potMenu.add(emptyThePotsubMenu);
 		coffeeMakerMenu.add(potMenu);
 
-		// Plate Heater
-		plateHeaderMenu = new JMenu("   Pot Heater");
-		plateHeaderOnSubMenu = new JMenuItem("Turn On");
-		plateHeaderOffSubMenu = new JMenuItem("Turn Off");
-		plateHeaderMenu.add(plateHeaderOnSubMenu);
-		plateHeaderMenu.add(plateHeaderOffSubMenu);
-		coffeeMakerMenu.add(plateHeaderMenu);
+		// filter and coffee grounds
+		filterMenu = new JMenu("Filter");
+		putTheFiltersubMenu = new JMenuItem("Empty Put");
+		raisetheFiltersubMenu = new JMenuItem("Raise the put");
+		fillTheFilterSubMenu = new JMenuItem("Add coffee grounds");
+		filterMenu.add(putTheFiltersubMenu);
+		filterMenu.add(raisetheFiltersubMenu);
+		filterMenu.add(fillTheFilterSubMenu);
+		coffeeMakerMenu.add(filterMenu);
 
 		// valve
-		valveMenu = new JMenu("   Valve");
+		valveMenu = new JMenu("Valve");
 		valveOpenSubMenu = new JMenuItem("Open");
 		valveCloseSubMenu = new JMenuItem("Close");
 		valveMenu.add(valveOpenSubMenu);
@@ -186,20 +188,20 @@ public class CoffeeMakerGui extends JFrame {
 
 	public void configPlateSensor() {
 		setPlateSensorAsPlateEmpty();
-		plateSensor.setBounds(400, 335, 201, 117);
+		plateSensor.setBounds(415, 395, 60, 23);
 		add(plateSensor);
 	}
 
 	public void setPlateSensorAsPlateNotEmpty() {
-		plateSensor.setIcon(new ImageIcon(PLATE_HEADER_POT_NOT_EMPTY));
+		plateSensor.setIcon(new ImageIcon(PLATE_SENSOR_POT_NOT_EMPTY));
 	}
 
 	public void setPlateSensorAsPlateEmpty() {
-		plateSensor.setIcon(new ImageIcon(PLATE_HEADER_POT_EMPTY));
+		plateSensor.setIcon(new ImageIcon(PLATE_SENSOR_POT_EMPTY));
 	}
 
 	public void setPlateSensorAsWarmerEmpty() {
-		plateSensor.setIcon(new ImageIcon(PLATE_HEADER_WARMER_EMPTY));
+		plateSensor.setIcon(new ImageIcon(PLATE_SENSOR_WARMER_EMPTY));
 	}
 
 	public void configBoiler() {
@@ -209,17 +211,18 @@ public class CoffeeMakerGui extends JFrame {
 	}
 
 	public void configBoilerHeater() {
-		setBoilerHeaderOff();
-		boilerHeader.setBounds(95, 341, 201, 117);
-		add(boilerHeader);
+		setBoilerHeaterOff();
+		boilerHeater.setBounds(31, 388, 212, 23);
+		add(boilerHeater);
 	}
 
 	public void configPlateHeater() {
-		setPlateHeaderOff();
-		plateHeader.setBounds(409, 360, 201, 117);
-		add(plateHeader);
+		setPlateHeaterOff();
+		plateHeater.setBounds(338, 408, 212, 23);
+		add(plateHeater);
 	}
 
+	// Valve Getter
 	public JMenuItem getValveOpenSubMenu() {
 		return valveOpenSubMenu;
 	}
@@ -228,6 +231,7 @@ public class CoffeeMakerGui extends JFrame {
 		return valveCloseSubMenu;
 	}
 
+	// Pot Getter
 	public JMenuItem getPutThePotsubMenu() {
 		return putThePotsubMenu;
 	}
@@ -236,34 +240,47 @@ public class CoffeeMakerGui extends JFrame {
 		return raisethePotsubMenu;
 	}
 
-	public JMenuItem getEmptyThePotsubMenu() {
-		return emptyThePotsubMenu;
-	}
-
 	public JMenuItem getFillThePotSubMenu() {
 		return fillThePotSubMenu;
 	}
 
+	// Filter Getter
+	public JMenuItem getPutTheFiltersubMenu() {
+		return putTheFiltersubMenu;
+	}
+
+	public JMenuItem getRaisetheFiltersubMenu() {
+		return raisetheFiltersubMenu;
+	}
+
+	public JMenuItem getFillTheFilterSubMenu() {
+		return fillTheFilterSubMenu;
+	}
+
+	// Boiler Heater Setter
 	public void setBoilerHeaterOn() {
-		boilerHeader.setIcon(new ImageIcon(BOILER_HEADER_ON));
+		boilerHeater.setIcon(new ImageIcon(BOILER_HEATER_ON));
 	}
 
-	public void setBoilerHeaderOff() {
-		boilerHeader.setIcon(new ImageIcon(BOILER_HEADER_OFF));
+	public void setBoilerHeaterOff() {
+		boilerHeater.setIcon(new ImageIcon(BOILER_HEATER_OFF));
 	}
 
-	public void setPlateHeaderOn() {
-		plateHeader.setIcon(new ImageIcon(PLATE_HEADER_ON));
+	// Plate Heater Setter
+	public void setPlateHeaterOn() {
+		plateHeater.setIcon(new ImageIcon(PLATE_HEATER_ON));
 	}
 
-	public void setPlateHeaderOff() {
-		plateHeader.setIcon(new ImageIcon(PLATE_HEADER_OFF));
+	public void setPlateHeaterOff() {
+		plateHeater.setIcon(new ImageIcon(PLATE_HEATER_OFF));
 	}
 
+	// PopUp Getter
 	public JPopupMenu getCoffeeMakerMenu() {
 		return coffeeMakerMenu;
 	}
 
+	// Boiler Water Getter
 	public JMenuItem getCleanWaterSubMenu() {
 		return cleanWatersubMenu;
 	}
@@ -272,22 +289,25 @@ public class CoffeeMakerGui extends JFrame {
 		return fillWaterSubMenu;
 	}
 
-	public JMenuItem getBoilerHeaderOnSubMenu() {
+	// Boiler Heater Getter
+	public JMenuItem getBoilerHeaterOnSubMenu() {
 		return boilerHeaterOnSubMenu;
 	}
 
-	public JMenuItem getBoilerHeaderOffSubMenu() {
+	public JMenuItem getBoilerHeaterOffSubMenu() {
 		return boilerHeaterOffSubMenu;
 	}
 
-	public JMenuItem getPlateHeaderOnSubMenu() {
-		return plateHeaderOnSubMenu;
+	// Plate Heater Getter
+	public JMenuItem getPlateHeaterOnSubMenu() {
+		return plateHeaterOnSubMenu;
 	}
 
-	public JMenuItem getPlateHeaderOffSubMenu() {
-		return plateHeaderOffSubMenu;
+	public JMenuItem getPlateHeaterOffSubMenu() {
+		return plateHeaterOffSubMenu;
 	}
 
+	// Boiler Sensor Setter
 	public void setWaterSensorAsBoilerNotEmpty() {
 		waterSensor.setIcon(new ImageIcon(BOILER_NOT_EMPTY));
 	}
@@ -296,6 +316,7 @@ public class CoffeeMakerGui extends JFrame {
 		waterSensor.setIcon(new ImageIcon(BOILER_EMPTY));
 	}
 
+	// Water Setter
 	public void setCleanWater() {
 		water.setIcon(new ImageIcon(NOT_WATER));
 	}
@@ -304,18 +325,22 @@ public class CoffeeMakerGui extends JFrame {
 		water.setIcon(new ImageIcon(WATER));
 	}
 
+	// Button Getter
 	public JButton getStart() {
 		return start;
 	}
 
+	// Button Setter
 	public void setStart(JButton start) {
 		this.start = start;
 	}
 
+	// Light Getter
 	public JLabel getBrew() {
 		return brew;
 	}
 
+	// Light Setter
 	public void setBrewStopped() {
 		brew.setIcon(new ImageIcon(BREW_STOPPED));
 	}
@@ -328,10 +353,12 @@ public class CoffeeMakerGui extends JFrame {
 		brew.setIcon(new ImageIcon(BREW_COMPLETED));
 	}
 
+	// Pot Getter
 	public JLabel getPot() {
 		return pot;
 	}
 
+	// Pot Setter
 	public void setPotUnAvailable() {
 		pot.setIcon(new ImageIcon(POT_UNAVAILABLE));
 	}
@@ -352,6 +379,24 @@ public class CoffeeMakerGui extends JFrame {
 		pot.setIcon(new ImageIcon(POT_COMPLETED));
 	}
 
+	// Filter Getter
+	public JLabel getFilter() {
+		return filter;
+	}
+
+	// Filter Setter
+	public void setFilterEmpty() {
+		filter.setIcon(new ImageIcon(FILTER_EMPTY));
+	}
+
+	public void setFilterNotEmpty() {
+		filter.setIcon(new ImageIcon(FILTER_NOT_EMPTY));
+	}
+
+	public void setFilterRaised() {
+		filter.setIcon(new ImageIcon(FILTER_RAISED));
+	}
+
 	public void configBrew() {
 		setBrewStopped();
 		brew.setBounds(180, 385, 201, 117);
@@ -360,7 +405,7 @@ public class CoffeeMakerGui extends JFrame {
 
 	public void configWaiterSensor() {
 		setWaterSensorAsBoilerNotEmpty();
-		waterSensor.setBounds(95, 318, 201, 117);
+		waterSensor.setBounds(110, 377, 60, 23);
 		add(waterSensor);
 	}
 
@@ -401,7 +446,7 @@ public class CoffeeMakerGui extends JFrame {
 	}
 
 	public void configFilter() {
-		filter.setIcon(new ImageIcon(FILTER));
+		filter.setIcon(new ImageIcon(FILTER_NOT_EMPTY));
 		filter.setBounds(395, 157, 299, 59);
 		add(filter);
 	}
@@ -424,13 +469,13 @@ public class CoffeeMakerGui extends JFrame {
 	public JLabel getCoffee() {
 		return coffee;
 	}
-
+/*
 	public void configCoffeeGrounds() {
 		coffeeGrounds.setIcon(new ImageIcon(COFFEE_GROUNDS));
 		coffeeGrounds.setBounds(399, 170, 89, 33);
 		add(coffeeGrounds);
 	}
-
+*/
 	public void configButton() {
 		start.setText("START");
 		start.setFocusPainted(false);
