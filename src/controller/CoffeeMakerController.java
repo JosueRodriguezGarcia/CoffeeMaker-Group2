@@ -63,23 +63,13 @@ public class CoffeeMakerController {
 				view.setWaterSensorAsBoilerNotEmpty();
 			}
 		});
-		/*
-		 * // Boiler header view.getBoilerHeaderOnSubMenu().addActionListener(new
-		 * ActionListener() { public void actionPerformed(ActionEvent e) {
-		 * view.setBoilerHeaterOn();
-		 * 
-		 * } });
-		 * 
-		 * view.getBoilerHeaderOffSubMenu().addActionListener(new ActionListener() {
-		 * public void actionPerformed(ActionEvent e) { view.setBoilerHeaderOff(); } });
-		 */
-		
 		
 		// Pot
 		view.getPutThePotsubMenu().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				view.setPotEmpty();
 				view.setPlateSensorAsPlateEmpty();
+				view.setPlateHeaterOff();
 			}
 		});
 
@@ -87,12 +77,14 @@ public class CoffeeMakerController {
 			public void actionPerformed(ActionEvent e) {
 				view.setPotUnAvailable();
 				view.setPlateSensorAsWarmerEmpty();
+				
 			}
 		});
 		view.getFillThePotSubMenu().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				view.setPotNotEmpty();
 				view.setPlateSensorAsPlateNotEmpty();
+				view.setPlateHeaterOff();
 			}
 		});
 
@@ -111,14 +103,6 @@ public class CoffeeMakerController {
 			}
 		});
 
-		/*
-		 * // Plate header view.getPlateHeaderOnSubMenu().addActionListener(new
-		 * ActionListener() { public void actionPerformed(ActionEvent e) {
-		 * view.setPlateHeaderOn(); } });
-		 * 
-		 * view.getPlateHeaderOffSubMenu().addActionListener(new ActionListener() {
-		 * public void actionPerformed(ActionEvent e) { view.setPlateHeaderOff(); } });
-		 */
 		// start Button
 		view.getStart().addActionListener(new StartButtonListener());
 	}
@@ -151,8 +135,18 @@ public class CoffeeMakerController {
 				public void run() {
 					// All here all operations that are in progress
 					view.setPotInProgress();
-					view.setBoilerHeaterOn();
+					view.setBoilerHeaterOn();					
 					model.getBoiler().getHeater().on();
+					
+					//YOOOO
+					/*
+					view.setPlateSensorAsPlateEmpty();
+					
+					view.setFillWater();
+					*/
+					
+					
+					
 					try {
 						Thread.sleep(3000);
 					} catch (InterruptedException ex) {
@@ -163,7 +157,8 @@ public class CoffeeMakerController {
 							// All here all operations that are completed.
 							view.setBrewCompleted();
 							model.getLight().on();
-
+							
+							view.setPlateSensorAsPlateNotEmpty();
 							view.setPotCompleted();
 							model.getPlate().getSensor().setStatus(PlateSensorStatus.POT_NOT_EMPTY);
 
@@ -174,10 +169,10 @@ public class CoffeeMakerController {
 							view.setValveOpened();
 							model.getBoiler().getValve().close();
 
-							view.setBoilerHeaderOff();
+							view.setBoilerHeaterOff();
 							model.getBoiler().getHeater().off();
 
-							view.setPlateHeaderOn();
+							view.setPlateHeaterOn();
 							model.getPlate().getHeater().on();
 						}
 					});
