@@ -63,7 +63,7 @@ public class CoffeeMakerController {
 				view.setWaterSensorAsBoilerNotEmpty();
 			}
 		});
-		
+
 		// Pot
 		view.getPutThePotsubMenu().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -77,7 +77,7 @@ public class CoffeeMakerController {
 			public void actionPerformed(ActionEvent e) {
 				view.setPotUnAvailable();
 				view.setPlateSensorAsWarmerEmpty();
-				
+
 			}
 		});
 		view.getFillThePotSubMenu().addActionListener(new ActionListener() {
@@ -88,8 +88,26 @@ public class CoffeeMakerController {
 			}
 		});
 
+		// Filter
+		view.getPutTheFiltersubMenu().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				view.setFilterEmpty();
+			}
+		});
+
+		view.getRaisetheFiltersubMenu().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				view.setFilterRaised();
+
+			}
+		});
+		view.getFillTheFilterSubMenu().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				view.setFilterNotEmpty();
+			}
+		});
 		
-		
+
 		// Valve
 		view.getValveOpenSubMenu().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -135,18 +153,16 @@ public class CoffeeMakerController {
 				public void run() {
 					// All here all operations that are in progress
 					view.setPotInProgress();
-					view.setBoilerHeaterOn();					
+					view.setBoilerHeaterOn();
 					model.getBoiler().getHeater().on();
-					
-					//YOOOO
+
+					// YOOOO
 					/*
-					view.setPlateSensorAsPlateEmpty();
-					
-					view.setFillWater();
-					*/
-					
-					
-					
+					 * view.setPlateSensorAsPlateEmpty();
+					 * 
+					 * view.setFillWater();
+					 */
+
 					try {
 						Thread.sleep(3000);
 					} catch (InterruptedException ex) {
@@ -157,7 +173,7 @@ public class CoffeeMakerController {
 							// All here all operations that are completed.
 							view.setBrewCompleted();
 							model.getLight().on();
-							
+
 							view.setPlateSensorAsPlateNotEmpty();
 							view.setPotCompleted();
 							model.getPlate().getSensor().setStatus(PlateSensorStatus.POT_NOT_EMPTY);
