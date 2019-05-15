@@ -82,6 +82,12 @@ public class CoffeeMakerGui extends JFrame {
 	private JMenuItem raisethePotsubMenu;
 	private JMenuItem emptyThePotsubMenu;
 	private JMenuItem fillThePotSubMenu;
+	
+	private JMenu filterMenu;
+	private JMenuItem putTheFiltersubMenu;
+	private JMenuItem raisetheFiltersubMenu;
+	private JMenuItem emptyTheFiltersubMenu;
+	private JMenuItem fillTheFilterSubMenu;
 
 	private JMenu plateHeaderMenu;
 	private JMenuItem plateHeaderOnSubMenu;
@@ -124,7 +130,6 @@ public class CoffeeMakerGui extends JFrame {
 		configWater();
 		configCoffeMakerMenu();
 		configBoiler();
-		configBoilerHeater();
 		configPlateHeater();
 		configPlateSensor();
 		configCoffeeMaker();
@@ -140,43 +145,39 @@ public class CoffeeMakerGui extends JFrame {
 		coffeeMakerMenu = new JPopupMenu();
 
 		// boiler and its water
-		boilerMenu = new JMenu("   Boiler");
+		boilerMenu = new JMenu("Boiler");
 		cleanWatersubMenu = new JMenuItem("Clean Water");
 		fillWaterSubMenu = new JMenuItem("Fill Water");
 		boilerMenu.add(cleanWatersubMenu);
 		boilerMenu.add(fillWaterSubMenu);
 		coffeeMakerMenu.add(boilerMenu);
-
-		// boiler Heater
-		boilerHeaterMenu = new JMenu("   Boiler Heater");
-		boilerHeaterOnSubMenu = new JMenuItem("Turn On");
-		boilerHeaterOffSubMenu = new JMenuItem("Turn Off");
-		boilerHeaterMenu.add(boilerHeaterOnSubMenu);
-		boilerHeaterMenu.add(boilerHeaterOffSubMenu);
-		coffeeMakerMenu.add(boilerHeaterMenu);
-
-		// boiler and its water
-		potMenu = new JMenu("   Pot");
-		putThePotsubMenu = new JMenuItem("Put an Empty Put");
+				
+		// pot and its coffee
+		potMenu = new JMenu("Pot");
+		putThePotsubMenu = new JMenuItem("Empty Put");
 		raisethePotsubMenu = new JMenuItem("Raise the put");
 		fillThePotSubMenu = new JMenuItem("Add coffee");
-		emptyThePotsubMenu = new JMenuItem("Empty the coffee");
+		//emptyThePotsubMenu = new JMenuItem("Empty the coffee");
 		potMenu.add(putThePotsubMenu);
 		potMenu.add(raisethePotsubMenu);
 		potMenu.add(fillThePotSubMenu);
-		potMenu.add(emptyThePotsubMenu);
+		//potMenu.add(emptyThePotsubMenu);
 		coffeeMakerMenu.add(potMenu);
-
-		// Plate Heater
-		plateHeaderMenu = new JMenu("   Pot Heater");
-		plateHeaderOnSubMenu = new JMenuItem("Turn On");
-		plateHeaderOffSubMenu = new JMenuItem("Turn Off");
-		plateHeaderMenu.add(plateHeaderOnSubMenu);
-		plateHeaderMenu.add(plateHeaderOffSubMenu);
-		coffeeMakerMenu.add(plateHeaderMenu);
-
+		
+		//filter and coffee grounds-----------------------------
+		filterMenu = new JMenu("Filter");
+		putTheFiltersubMenu = new JMenuItem("Empty Put");
+		raisetheFiltersubMenu = new JMenuItem("Raise the put");
+		fillTheFilterSubMenu = new JMenuItem("Add coffee grounds");
+		//emptyTheFiltersubMenu = new JMenuItem("Empty the coffee grounds");
+		filterMenu.add(putTheFiltersubMenu);
+		filterMenu.add(raisetheFiltersubMenu);
+		filterMenu.add(fillTheFilterSubMenu);
+		//filterMenu.add(emptyTheFiltersubMenu);
+		coffeeMakerMenu.add(filterMenu);
+				
 		// valve
-		valveMenu = new JMenu("   Valve");
+		valveMenu = new JMenu("Valve");
 		valveOpenSubMenu = new JMenuItem("Open");
 		valveCloseSubMenu = new JMenuItem("Close");
 		valveMenu.add(valveOpenSubMenu);
@@ -186,7 +187,7 @@ public class CoffeeMakerGui extends JFrame {
 
 	public void configPlateSensor() {
 		setPlateSensorAsPlateEmpty();
-		plateSensor.setBounds(400, 335, 201, 117);
+		plateSensor.setBounds(415, 395, 60, 23);
 		add(plateSensor);
 	}
 
@@ -210,13 +211,13 @@ public class CoffeeMakerGui extends JFrame {
 
 	public void configBoilerHeater() {
 		setBoilerHeaderOff();
-		boilerHeader.setBounds(95, 341, 201, 117);
+		boilerHeader.setBounds(31, 388, 212, 23);
 		add(boilerHeader);
 	}
 
 	public void configPlateHeater() {
 		setPlateHeaderOff();
-		plateHeader.setBounds(409, 360, 201, 117);
+		plateHeader.setBounds(338, 408, 212, 23);
 		add(plateHeader);
 	}
 
@@ -360,7 +361,7 @@ public class CoffeeMakerGui extends JFrame {
 
 	public void configWaiterSensor() {
 		setWaterSensorAsBoilerNotEmpty();
-		waterSensor.setBounds(95, 318, 201, 117);
+		waterSensor.setBounds(110, 377, 60, 23);
 		add(waterSensor);
 	}
 
