@@ -9,14 +9,17 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class CoffeeMakerGui extends JFrame {
-
+	
 	final String COFFEE_MAKER = "resources/coffeeMaker.png";
+	
 	final String OPEN_VALVE = "resources/open.png";
 	final String CLOSED_VALVE = "resources/closed.png";
-	final String POT = "resources/pot.png";
-	final String FILTER = "resources/filter.png";
+	
 	final String NOT_WATER = "resources/notWater.png";
+	final String WATER_DRAINING = "resources/Water.gif";
+	//final String WATER = "resources/boilerWater.gif";
 	final String WATER = "resources/Water.png";
+	final String WATER_BOILING = "resources/boilerWater.gif";
 	final String COFFEE = "resources/coffee.png";
 	final String COFFEE_GROUNDS = "resources/coffeeGrounds.png";
 
@@ -24,15 +27,17 @@ public class CoffeeMakerGui extends JFrame {
 	final String BREW_INPROGRESS = "resources/brewInProgress.png";
 	final String BREW_COMPLETED = "resources/brewCompleted.png";
 
+	final String POT = "resources/pot.png";
 	final String POT_UNAVAILABLE = "resources/potUnAvailable.png";
 	final String POT_EMPTY = "resources/potEmpty.png";
 	final String POT_NOT_EMPTY = "resources/potNotEmpty.png";
 	final String POT_INPROGRESS = "resources/potInProgress.png";
+	final String POT_COFFEE = "resources/potCoffeeFill.gif";
 	final String POT_COMPLETED = "resources/potCompleted.png";
 
 	final String BOILER_NOT_EMPTY = "resources/boilerNotEmpty.png";
 	final String BOILER_EMPTY = "resources/boilerEmpty.png";
-
+	
 	final String BOILER_HEATER_ON = "resources/boilerHeaterOn.png";
 	final String BOILER_HEATER_OFF = "resources/boilerHeaterOff.png";
 
@@ -43,6 +48,7 @@ public class CoffeeMakerGui extends JFrame {
 	final String PLATE_SENSOR_POT_NOT_EMPTY = "resources/potNotEmpty_plateSensor.png";
 	final String PLATE_SENSOR_WARMER_EMPTY = "resources/warmerEmpty_plateSensor.png";
 
+	final String FILTER = "resources/filter.png";
 	final String FILTER_EMPTY = "resources/filterEmpty.png";
 	final String FILTER_NOT_EMPTY = "resources/filterNotEmpty.png";
 	final String FILTER_RAISED = "";
@@ -288,6 +294,7 @@ public class CoffeeMakerGui extends JFrame {
 	public JMenuItem getFillWaterSubMenu() {
 		return fillWaterSubMenu;
 	}
+	
 
 	// Boiler Heater Getter
 	public JMenuItem getBoilerHeaterOnSubMenu() {
@@ -323,6 +330,12 @@ public class CoffeeMakerGui extends JFrame {
 
 	public void setFillWater() {
 		water.setIcon(new ImageIcon(WATER));
+	}
+	public void setBoilingWater() {
+		water.setIcon(new ImageIcon(WATER_BOILING));
+	}
+	public void setdrainingWater() {
+		water.setIcon(new ImageIcon(WATER_DRAINING));
 	}
 
 	// Button Getter
@@ -374,7 +387,9 @@ public class CoffeeMakerGui extends JFrame {
 	public void setPotInProgress() {
 		pot.setIcon(new ImageIcon(POT_INPROGRESS));
 	}
-
+	public void setPotFill() {
+		pot.setIcon(new ImageIcon(POT_COFFEE));
+	}
 	public void setPotCompleted() {
 		pot.setIcon(new ImageIcon(POT_COMPLETED));
 	}

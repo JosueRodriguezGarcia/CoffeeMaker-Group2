@@ -152,22 +152,23 @@ public class CoffeeMakerController {
 			Thread worker = new Thread() {
 				public void run() {
 					// All here all operations that are in progress
-					view.setPotInProgress();
+					view.setBrewStopped();
 					view.setBoilerHeaterOn();
+					view.setBoilingWater();
 					model.getBoiler().getHeater().on();
-
-					// YOOOO
-					/*
-					 * view.setPlateSensorAsPlateEmpty();
-					 * 
-					 * view.setFillWater();
-					 */
-
 					try {
 						Thread.sleep(3000);
 					} catch (InterruptedException ex) {
 					}
-
+					view.setdrainingWater();
+					
+					view.setPotFill();
+					//view.setPotInProgress();
+					try {
+						Thread.sleep(3000);
+					} catch (InterruptedException ex) {
+					}
+					
 					SwingUtilities.invokeLater(new Runnable() {
 						public void run() {
 							// All here all operations that are completed.
