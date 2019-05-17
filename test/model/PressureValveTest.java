@@ -9,20 +9,20 @@ public class PressureValveTest {
 	IValveDriver valve = new PressureValve();
 	
 	@Test
-	public void getStatus_pressureValveStatus_resultClosed() {		
+	public void getStatus_valveStatus_resultClosed() {		
 		assertEquals(PressureValveStatus.CLOSED, valve.getStatus());
 	}
 
 	@Test
-	public void on_HeaterOn_resultTrue() {
+	public void open_resultOpen() {
 		valve.open();
-		assertEquals(true, valve.getStatus());
+		assertEquals(PressureValveStatus.OPEN, valve.getStatus());
 	}
 
 	@Test
-	public void off_HeaterOff_resultFalse() {
+	public void close_resultClosed() {
 		valve.close();
-		assertEquals(false, valve.getStatus());
+		assertEquals(PressureValveStatus.CLOSED, valve.getStatus());
 	}
 
 }
