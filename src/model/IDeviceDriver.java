@@ -1,7 +1,7 @@
 package model;
 
 public interface IDeviceDriver {
-	boolean getIsOn();
+	boolean getStatus();
 	void off();
 	void on();
 }

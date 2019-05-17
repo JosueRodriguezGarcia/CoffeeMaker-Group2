@@ -1,15 +1,15 @@
 package model;
 
 public class Heater implements IDeviceDriver {
-	boolean isOn;
+	boolean status;
 	ISensor sensor;
 	
 	public Heater () {
-		isOn = false;
+		status = false;
 	}
 	
-	public boolean getIsOn () {
-		return isOn;
+	public boolean getStatus () {
+		return status;
 	}
 	
 	public ISensor getSensor () {
@@ -17,10 +17,10 @@ public class Heater implements IDeviceDriver {
 	}
 	
 	public void off() {
-		isOn = false;
+		status = false;
 	}
 	
 	public void on() {
-		isOn = true;
+		status = true;
 	}
 }

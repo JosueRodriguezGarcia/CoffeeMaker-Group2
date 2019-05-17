@@ -7,7 +7,7 @@ public class LightIndicator implements IDeviceDriver {
 		isOn = false;
 	}
 	
-	public boolean getIsOn () {
+	public boolean getStatus () {
 		return isOn;
 	}
 	

@@ -68,7 +68,7 @@ public class CoffeeMakerController {
 				view.setPotEmpty();
 				view.setPlateSensorAsPlateEmpty();
 				model.getPlate().getSensor().setStatus(PlateSensorStatus.POT_EMPTY);
-				if (model.getLight().getIsOn() == true) {
+				if (model.getLight().getStatus() == true) {
 					view.setPlateHeaterOff();
 					model.getPlate().getHeater().off();
 				}
@@ -80,7 +80,7 @@ public class CoffeeMakerController {
 				view.setPotUnAvailable();
 				view.setPlateSensorAsWarmerEmpty();
 				model.getPlate().getSensor().setStatus(PlateSensorStatus.WARMER_EMPTY);
-				if (model.getLight().getIsOn() == true) {
+				if (model.getLight().getStatus() == true) {
 					view.setPlateHeaterOff();
 					model.getPlate().getHeater().off();
 				}
@@ -91,7 +91,7 @@ public class CoffeeMakerController {
 				view.setPotNotEmpty();
 				view.setPlateSensorAsPlateNotEmpty();
 				model.getPlate().getSensor().setStatus(PlateSensorStatus.POT_NOT_EMPTY);
-				if (model.getLight().getIsOn() == true) {
+				if (model.getLight().getStatus() == true) {
 					view.setPlateHeaterOn();
 					model.getPlate().getHeater().on();
 				}
