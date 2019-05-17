@@ -9,12 +9,12 @@ public class FilterSensorTest {
 	ISensor filterSensor = new FilterSensor();
 
 	@Test
-	public void getStatus_resultFilterSensorStatus() {
+	public void getStatus_resultFilterNotEmpty() {
 		assertEquals(FilterSensorStatus.FILTER_NOT_EMPTY, filterSensor.getStatus());
 	}
 
 	@Test
-	public void setStatus_resultFilterSensorStatus() {
+	public void setStatus_filterEmpty_resultFilterEmpty() {
 		filterSensor.setStatus(FilterSensorStatus.FILTER_EMPTY);
 		assertEquals(FilterSensorStatus.FILTER_EMPTY, filterSensor.getStatus());
 	}

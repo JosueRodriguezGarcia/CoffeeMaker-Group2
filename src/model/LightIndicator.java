@@ -1,21 +1,21 @@
 package model;
 
 public class LightIndicator implements IDeviceDriver {
-	boolean isOn;
+	DeviceStatus status;
 	
 	public LightIndicator() {
-		isOn = false;
+		status = DeviceStatus.OFF;
 	}
 	
-	public boolean getStatus () {
-		return isOn;
+	public DeviceStatus getStatus () {
+		return status;
 	}
 	
 	public void off() {
-		isOn = false;
+		status = DeviceStatus.OFF;
 	}
 	
 	public void on() {
-		isOn = true;
+		status = DeviceStatus.ON;
 	}
 }

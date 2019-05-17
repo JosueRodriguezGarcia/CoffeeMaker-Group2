@@ -3,14 +3,12 @@ package model;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import model.*;
-
 public class CoffeeMakerTest {
 
 	CoffeeMaker coffeemaker = new CoffeeMaker();
 	
 	@Test
-	public void isOn_true_resultTrue() {
+	public void getButton_resultStartButton() {
 		assertTrue(coffeemaker.getButton() instanceof StartButton);
 	}
 

@@ -1,26 +1,21 @@
 package model;
 
 public class Heater implements IDeviceDriver {
-	boolean status;
-	ISensor sensor;
+	DeviceStatus status;
 	
 	public Heater () {
-		status = false;
+		status = DeviceStatus.OFF;
 	}
 	
-	public boolean getStatus () {
+	public DeviceStatus getStatus () {
 		return status;
 	}
 	
-	public ISensor getSensor () {
-		return sensor;
-	}
-	
 	public void off() {
-		status = false;
+		status = DeviceStatus.OFF;
 	}
 	
 	public void on() {
-		status = true;
+		status = DeviceStatus.ON;
 	}
 }

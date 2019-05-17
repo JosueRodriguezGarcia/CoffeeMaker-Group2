@@ -6,27 +6,22 @@ import org.junit.Test;
 
 public class HeaterTest {
 	
-	IDeviceDriver heater = new Heater();
+	Heater heater = new Heater();
 
 	@Test
-	public void getStatus_heaterStatus_resultFalse() {
-		assertEquals(false, heater.getStatus());
+	public void getStatus_resultOff() {
+		assertEquals(DeviceStatus.OFF, heater.getStatus());
 	}
 	
 	@Test
-	public void getSensor_retrieveSensorObject_resultISensor() {
-		assertTrue (((Heater) heater).getSensor() instanceof ISensor);
-	}
-
-	@Test
-	public void on_HeaterOn_resultTrue() {
+	public void on_On_resultOn() {
 		heater.on();
-		assertEquals(true, heater.getStatus());
+		assertEquals(DeviceStatus.ON, heater.getStatus());
 	}
 
 	@Test
 	public void off_HeaterOff_resultFalse() {
 		heater.off();
-		assertEquals(false, heater.getStatus());
+		assertEquals(DeviceStatus.OFF, heater.getStatus());
 	}
 }

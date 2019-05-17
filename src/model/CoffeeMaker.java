@@ -10,7 +10,7 @@ public class CoffeeMaker {
 	public CoffeeMaker () {
 		button = new StartButton();
 		light = new LightIndicator();
-		sensor = new FilterSensor();
+		sensor = SensorFactory.create(SensorType.FILTER_SENSOR);
 		plate = new Plate();
 		boiler = new Boiler();
 	}

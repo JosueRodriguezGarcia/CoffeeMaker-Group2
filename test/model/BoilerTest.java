@@ -5,23 +5,20 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class BoilerTest {
-
 	Boiler boiler = new Boiler();
 
 	@Test
-	public void pruebaTest_Sensor() {
+	public void getSensor_resultISensor() {
 		assertTrue(boiler.getSensor() instanceof ISensor);
 	}
 	
 	@Test
-	public void pruebaTest_Heater() {
+	public void getHeater_resultIDeviceDriver() {
 		assertTrue(boiler.getHeater() instanceof IDeviceDriver);
 	}
 	
 	@Test
-	public void pruebaTest_Valve() {
+	public void getValve_resultPressureValve() {
 		assertTrue(boiler.getValve() instanceof PressureValve);
 	}
-	
-	
 }

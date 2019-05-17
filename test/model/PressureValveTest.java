@@ -10,19 +10,19 @@ public class PressureValveTest {
 	
 	@Test
 	public void getStatus_pressureValveStatus_resultClosed() {		
-		assertEquals(false, valve.getIsOpen());
+		assertEquals(PressureValveStatus.CLOSED, valve.getStatus());
 	}
 
 	@Test
 	public void on_HeaterOn_resultTrue() {
 		valve.open();
-		assertEquals(true, valve.getIsOpen());
+		assertEquals(true, valve.getStatus());
 	}
 
 	@Test
 	public void off_HeaterOff_resultFalse() {
 		valve.close();
-		assertEquals(false, valve.getIsOpen());
+		assertEquals(false, valve.getStatus());
 	}
 
 }

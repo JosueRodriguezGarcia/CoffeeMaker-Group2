@@ -68,7 +68,7 @@ public class CoffeeMakerController {
 				view.setPotEmpty();
 				view.setPlateSensorAsPlateEmpty();
 				model.getPlate().getSensor().setStatus(PlateSensorStatus.POT_EMPTY);
-				if (model.getLight().getStatus() == true) {
+				if (model.getLight().getStatus() == DeviceStatus.ON) {
 					view.setPlateHeaterOff();
 					model.getPlate().getHeater().off();
 				}
@@ -80,7 +80,7 @@ public class CoffeeMakerController {
 				view.setPotUnAvailable();
 				view.setPlateSensorAsWarmerEmpty();
 				model.getPlate().getSensor().setStatus(PlateSensorStatus.WARMER_EMPTY);
-				if (model.getLight().getStatus() == true) {
+				if (model.getLight().getStatus() == DeviceStatus.ON) {
 					view.setPlateHeaterOff();
 					model.getPlate().getHeater().off();
 				}
@@ -91,7 +91,7 @@ public class CoffeeMakerController {
 				view.setPotNotEmpty();
 				view.setPlateSensorAsPlateNotEmpty();
 				model.getPlate().getSensor().setStatus(PlateSensorStatus.POT_NOT_EMPTY);
-				if (model.getLight().getStatus() == true) {
+				if (model.getLight().getStatus() == DeviceStatus.ON) {
 					view.setPlateHeaterOn();
 					model.getPlate().getHeater().on();
 				}
@@ -158,7 +158,7 @@ public class CoffeeMakerController {
 	private boolean checkValve () {
 		boolean missingConditions = true;
 		//VALVE CHECK
-		if (model.getBoiler().getValve().getIsOpen()) {	// 1. Is the relief valve open?
+		if (model.getBoiler().getValve().getStatus() == PressureValveStatus.OPEN) {	// 1. Is the relief valve open?
 			issueReport[0] = "Relief valve must be closed!";
 		}
 		else { 

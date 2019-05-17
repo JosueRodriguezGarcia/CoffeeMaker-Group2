@@ -7,7 +7,7 @@ public class Boiler {
 
 	public Boiler() {
 		this.heater = new Heater();
-		this.sensor = SensorFactory.make(SensorType.BOILER_SENSOR);
+		this.sensor = SensorFactory.create(SensorType.BOILER_SENSOR);
 		this.valve = new PressureValve();
 	}
 

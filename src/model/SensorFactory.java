@@ -1,7 +1,7 @@
 package model;
 
 abstract public class SensorFactory {
-	public static ISensor make(SensorType sensorType) {
+	public static ISensor create(SensorType sensorType) {
 		switch (sensorType) {
 		case PLATE_SENSOR: 
 			return new PlateSensor();
@@ -10,7 +10,7 @@ abstract public class SensorFactory {
 			return new BoilerSensor();
 
 		case FILTER_SENSOR: 
-			return new BoilerSensor();
+			return new FilterSensor();
 
 		default:
 			return null;

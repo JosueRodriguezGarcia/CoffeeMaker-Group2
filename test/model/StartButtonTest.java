@@ -10,12 +10,12 @@ public class StartButtonTest {
 
 	@Test
 	public void getStatus_startButton_resultFalse() {
-		assertEquals(false, button.getIsPushed());
+		assertEquals(StartButtonStatus.OFF, button.getStatus());
 	}
 
 	@Test
 	public void isPushed_startButton_resultFalse() {
-		button.setIsPushed(true);
-		assertEquals(true, button.getIsPushed());
+		button.setStatus(StartButtonStatus.ON);
+		assertEquals(StartButtonStatus.ON, button.getStatus());
 	}
 }

@@ -9,12 +9,12 @@ public class BoilerSensorTest {
 	ISensor boilerSensor = new BoilerSensor();
 	
 	@Test
-	public void getStatus_resultBoilerSensorStatus() {
+	public void getStatus_resultBoilerNotEmpty() {
 		assertEquals(BoilerSensorStatus.BOILER_NOT_EMPTY,boilerSensor.getStatus());
 	}
 
 	@Test
-	public void setStatus_resultBoilerSensorStatus() {
+	public void setStatus_boilerEmpty_resultboilerEmpty() {
 		boilerSensor.setStatus(BoilerSensorStatus.BOILER_EMPTY);
 		assertEquals(BoilerSensorStatus.BOILER_EMPTY,boilerSensor.getStatus());
 	}
