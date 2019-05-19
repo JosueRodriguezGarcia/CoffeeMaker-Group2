@@ -1,6 +1,6 @@
 package model;
 
-public enum BoilerSensorStatus implements ISensorStatus {
+public enum BoilerSensorStatus {
 	BOILER_EMPTY,
 	BOILER_NOT_EMPTY
 }

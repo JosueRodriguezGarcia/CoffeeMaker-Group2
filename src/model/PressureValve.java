@@ -11,11 +11,15 @@ public class PressureValve implements IValveDriver {
 		return status;
 	}
 
+	public void setStatus(PressureValveStatus status) {
+		this.status = status; 
+	}
+
 	public void open() {
-		status = PressureValveStatus.OPEN; 
+		this.setStatus(PressureValveStatus.OPEN); 
 	}
 
 	public void close() {
-		status = PressureValveStatus.CLOSED; 
+		this.setStatus(PressureValveStatus.CLOSED); 
 	}
 }

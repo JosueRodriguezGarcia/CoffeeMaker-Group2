@@ -11,11 +11,15 @@ public class Heater implements IDeviceDriver {
 		return status;
 	}
 	
+	public void setStatus(DeviceStatus status) {
+		this.status = status;
+	}
+	
 	public void off() {
-		status = DeviceStatus.OFF;
+		this.setStatus(DeviceStatus.OFF);
 	}
 	
 	public void on() {
-		status = DeviceStatus.ON;
+		this.setStatus(DeviceStatus.ON);
 	}
 }

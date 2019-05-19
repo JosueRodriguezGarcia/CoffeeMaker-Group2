@@ -1,6 +1,6 @@
 package model;
 
-public enum PlateSensorStatus implements ISensorStatus {
+public enum PlateSensorStatus {
 	WARMER_EMPTY,
 	POT_EMPTY,
 	POT_NOT_EMPTY
