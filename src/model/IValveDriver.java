@@ -1,7 +1,7 @@
 package model;
 
 public interface IValveDriver {
-	boolean getIsOpen();
+	PressureValveStatus getStatus();
 	void open();
 	void close();
 }

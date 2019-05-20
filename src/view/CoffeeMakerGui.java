@@ -153,36 +153,6 @@ public class CoffeeMakerGui extends JFrame {
 	public void configCoffeMakerMenu() {
 		coffeeMakerMenu = new JPopupMenu();
 
-		// boiler and its water
-		boilerMenu = new JMenu("Boiler");
-		cleanWatersubMenu = new JMenuItem("Clean Water");
-		fillWaterSubMenu = new JMenuItem("Fill Water");
-		boilerMenu.add(cleanWatersubMenu);
-		boilerMenu.add(fillWaterSubMenu);
-		coffeeMakerMenu.add(boilerMenu);
-
-		// pot and its coffee
-		potMenu = new JMenu("Pot");
-		putThePotsubMenu = new JMenuItem("Empty Put");
-		raisethePotsubMenu = new JMenuItem("Raise the put");
-		fillThePotSubMenu = new JMenuItem("Add coffee");
-		// emptyThePotsubMenu = new JMenuItem("Empty the coffee");
-		potMenu.add(putThePotsubMenu);
-		potMenu.add(raisethePotsubMenu);
-		potMenu.add(fillThePotSubMenu);
-		// potMenu.add(emptyThePotsubMenu);
-		coffeeMakerMenu.add(potMenu);
-
-		// filter and coffee grounds
-		filterMenu = new JMenu("Filter");
-		putTheFiltersubMenu = new JMenuItem("Empty Put");
-		raisetheFiltersubMenu = new JMenuItem("Raise the put");
-		fillTheFilterSubMenu = new JMenuItem("Add coffee grounds");
-		filterMenu.add(putTheFiltersubMenu);
-		filterMenu.add(raisetheFiltersubMenu);
-		filterMenu.add(fillTheFilterSubMenu);
-		coffeeMakerMenu.add(filterMenu);
-
 		// valve
 		valveMenu = new JMenu("Valve");
 		valveOpenSubMenu = new JMenuItem("Open");
@@ -190,6 +160,36 @@ public class CoffeeMakerGui extends JFrame {
 		valveMenu.add(valveOpenSubMenu);
 		valveMenu.add(valveCloseSubMenu);
 		coffeeMakerMenu.add(valveMenu);
+
+		// boiler and its water
+		boilerMenu = new JMenu("Boiler");
+		cleanWatersubMenu = new JMenuItem("Empty");
+		fillWaterSubMenu = new JMenuItem("Fill");
+		boilerMenu.add(cleanWatersubMenu);
+		boilerMenu.add(fillWaterSubMenu);
+		coffeeMakerMenu.add(boilerMenu);
+
+		// filter and coffee grounds
+		filterMenu = new JMenu("Filter");
+		putTheFiltersubMenu = new JMenuItem("Empty");
+		raisetheFiltersubMenu = new JMenuItem("Remove");
+		fillTheFilterSubMenu = new JMenuItem("Place Grounds");
+		filterMenu.add(putTheFiltersubMenu);
+		filterMenu.add(raisetheFiltersubMenu);
+		filterMenu.add(fillTheFilterSubMenu);
+		coffeeMakerMenu.add(filterMenu);
+
+		// pot and its coffee
+		potMenu = new JMenu("Pot");
+		putThePotsubMenu = new JMenuItem("Empty");
+		raisethePotsubMenu = new JMenuItem("Remove");
+		fillThePotSubMenu = new JMenuItem("With Coffee");
+		// emptyThePotsubMenu = new JMenuItem("Empty the coffee");
+		potMenu.add(putThePotsubMenu);
+		potMenu.add(raisethePotsubMenu);
+		potMenu.add(fillThePotSubMenu);
+		// potMenu.add(emptyThePotsubMenu);
+		coffeeMakerMenu.add(potMenu);
 	}
 
 	public void configPlateSensor() {

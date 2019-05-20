@@ -1,18 +1,18 @@
 package model;
 
 public class StartButton {
-	boolean isPushed;
+	StartButtonStatus status;
 	
 	public StartButton() {
-		isPushed = false;
+		status = StartButtonStatus.OFF;
 	}
 	
-	boolean getIsPushed() {
-		return isPushed;
+	StartButtonStatus getStatus() {
+		return status;
 	}
 	
-	void setIsPushed(boolean isPushed) {
-		this.isPushed = isPushed;
+	void setStatus(StartButtonStatus status) {
+		this.status = status;
 	}
 	
 }

@@ -11,7 +11,7 @@ public class BoilerSensor implements ISensor {
 		return status;
 	}
 	
-	public void setStatus(ISensorStatus status) {
+	public void setStatus(Enum<?> status) {
 		this.status = (BoilerSensorStatus) status;
 	}
 }

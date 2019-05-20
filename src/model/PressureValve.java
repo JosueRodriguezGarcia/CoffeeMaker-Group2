@@ -1,21 +1,25 @@
 package model;
 
 public class PressureValve implements IValveDriver {
-	boolean isOpen;
+	PressureValveStatus status;
 	
 	public PressureValve () {
-		isOpen = false;
+		status = PressureValveStatus.CLOSED;
 	}
 
-	public boolean getIsOpen() {
-		return isOpen;
+	public PressureValveStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(PressureValveStatus status) {
+		this.status = status; 
 	}
 
 	public void open() {
-		isOpen = true; 
+		this.setStatus(PressureValveStatus.OPEN); 
 	}
 
 	public void close() {
-		isOpen = false; 
+		this.setStatus(PressureValveStatus.CLOSED); 
 	}
 }

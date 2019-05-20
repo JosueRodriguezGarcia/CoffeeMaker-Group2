@@ -11,7 +11,7 @@ public class FilterSensor implements ISensor {
 		return this.status;
 	}
 	
-	public void setStatus(ISensorStatus status) {
+	public void setStatus(Enum<?> status) {
 		this.status = (FilterSensorStatus) status; 
 	}
 }
