@@ -3,21 +3,19 @@ package view;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
 public class CoffeeMakerGui extends JFrame {
 	
-	final String COFFEE_MAKER = "resources/coffeeMaker.png";
 	
+	//Declaration of the variables constant
+	final String COFFEE_MAKER = "resources/coffeeMaker.png";
+
 	final String OPEN_VALVE = "resources/open.png";
 	final String CLOSED_VALVE = "resources/closed.png";
-	
+
 	final String NOT_WATER = "resources/notWater.png";
 	final String WATER_DRAINING = "resources/Water.gif";
-	//final String WATER = "resources/boilerWater.gif";
 	final String WATER = "resources/Water.png";
 	final String WATER_BOILING = "resources/boilerWater.gif";
 	final String COFFEE = "resources/coffee.png";
@@ -37,7 +35,7 @@ public class CoffeeMakerGui extends JFrame {
 
 	final String BOILER_NOT_EMPTY = "resources/boilerNotEmpty.png";
 	final String BOILER_EMPTY = "resources/boilerEmpty.png";
-	
+
 	final String BOILER_HEATER_ON = "resources/boilerHeaterOn.png";
 	final String BOILER_HEATER_OFF = "resources/boilerHeaterOff.png";
 
@@ -53,10 +51,10 @@ public class CoffeeMakerGui extends JFrame {
 	final String FILTER_NOT_EMPTY = "resources/filterNotEmpty.png";
 	final String FILTER_RAISED = "";
 
-	// creacion del panel que contenera todos los elementos.
+	// Creation of the panel that will content all the elements
 	private JPanel background;
 
-	// Creacion de los diferentes Jlabel
+	// Creation of the differents Jlabel
 	private JLabel coffeeMaker;
 	private JLabel valve;
 	private JLabel water;
@@ -68,29 +66,27 @@ public class CoffeeMakerGui extends JFrame {
 	private JLabel filter;
 	private JLabel pot;
 	private JLabel coffee;
-	private JLabel coffeeGrounds;
 
-	// Creacion del Boton START
+	// Creation of the Button START
 	public JButton start;
 
-	// Creacion del Label BREW
+	// Creation of the Label BREW
 	public JLabel brew;
 
-	// Menus
+	// Creation of variables for the Menu popUp
 	private JPopupMenu coffeeMakerMenu;
 
 	private JMenu boilerMenu;
 	private JMenuItem cleanWatersubMenu;
 	private JMenuItem fillWaterSubMenu;
 
-	private JMenu boilerHeaterMenu;
+	//private JMenu boilerHeaterMenu;
 	private JMenuItem boilerHeaterOnSubMenu;
 	private JMenuItem boilerHeaterOffSubMenu;
 
 	private JMenu potMenu;
 	private JMenuItem putThePotsubMenu;
 	private JMenuItem raisethePotsubMenu;
-	// private JMenuItem emptyThePotsubMenu;
 	private JMenuItem fillThePotSubMenu;
 
 	private JMenu filterMenu;
@@ -98,7 +94,6 @@ public class CoffeeMakerGui extends JFrame {
 	private JMenuItem raisetheFiltersubMenu;
 	private JMenuItem fillTheFilterSubMenu;
 
-	private JMenu plateHeaterMenu;
 	private JMenuItem plateHeaterOnSubMenu;
 	private JMenuItem plateHeaterOffSubMenu;
 
@@ -108,7 +103,7 @@ public class CoffeeMakerGui extends JFrame {
 
 	public CoffeeMakerGui() {
 
-		// Initialization of varibles.
+		// initialization of the variables
 		background = new JPanel();
 		coffeeMaker = new JLabel();
 		valve = new JLabel();
@@ -119,7 +114,6 @@ public class CoffeeMakerGui extends JFrame {
 		filter = new JLabel();
 		pot = new JLabel();
 		coffee = new JLabel();
-		coffeeGrounds = new JLabel();
 		start = new JButton();
 		brew = new JLabel();
 		boiler = new JLabel();
@@ -131,7 +125,6 @@ public class CoffeeMakerGui extends JFrame {
 		configButton();
 		configBrew();
 		configValve();
-		//configCoffeeGrounds();
 		configFilter();
 		configPot();
 		configBoilerHeater();
@@ -184,11 +177,9 @@ public class CoffeeMakerGui extends JFrame {
 		putThePotsubMenu = new JMenuItem("Empty");
 		raisethePotsubMenu = new JMenuItem("Remove");
 		fillThePotSubMenu = new JMenuItem("With Coffee");
-		// emptyThePotsubMenu = new JMenuItem("Empty the coffee");
 		potMenu.add(putThePotsubMenu);
 		potMenu.add(raisethePotsubMenu);
 		potMenu.add(fillThePotSubMenu);
-		// potMenu.add(emptyThePotsubMenu);
 		coffeeMakerMenu.add(potMenu);
 	}
 
@@ -294,7 +285,6 @@ public class CoffeeMakerGui extends JFrame {
 	public JMenuItem getFillWaterSubMenu() {
 		return fillWaterSubMenu;
 	}
-	
 
 	// Boiler Heater Getter
 	public JMenuItem getBoilerHeaterOnSubMenu() {
@@ -331,9 +321,11 @@ public class CoffeeMakerGui extends JFrame {
 	public void setFillWater() {
 		water.setIcon(new ImageIcon(WATER));
 	}
+
 	public void setBoilingWater() {
 		water.setIcon(new ImageIcon(WATER_BOILING));
 	}
+
 	public void setdrainingWater() {
 		water.setIcon(new ImageIcon(WATER_DRAINING));
 	}
@@ -387,9 +379,11 @@ public class CoffeeMakerGui extends JFrame {
 	public void setPotInProgress() {
 		pot.setIcon(new ImageIcon(POT_INPROGRESS));
 	}
+
 	public void setPotFill() {
 		pot.setIcon(new ImageIcon(POT_COFFEE));
 	}
+
 	public void setPotCompleted() {
 		pot.setIcon(new ImageIcon(POT_COMPLETED));
 	}
@@ -484,13 +478,7 @@ public class CoffeeMakerGui extends JFrame {
 	public JLabel getCoffee() {
 		return coffee;
 	}
-/*
-	public void configCoffeeGrounds() {
-		coffeeGrounds.setIcon(new ImageIcon(COFFEE_GROUNDS));
-		coffeeGrounds.setBounds(399, 170, 89, 33);
-		add(coffeeGrounds);
-	}
-*/
+
 	public void configButton() {
 		start.setText("START");
 		start.setFocusPainted(false);

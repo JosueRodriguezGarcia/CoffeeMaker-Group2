@@ -3,10 +3,12 @@ package model;
 public class LightIndicator implements IDeviceDriver {
 	DeviceStatus status;
 	
+	// Constructor
 	public LightIndicator() {
 		status = DeviceStatus.OFF;
 	}
 	
+	// Getter
 	public DeviceStatus getStatus () {
 		return status;
 	}
@@ -15,10 +17,12 @@ public class LightIndicator implements IDeviceDriver {
 		this.status = status;
 	}
 	
+	//Turn Light off
 	public void off() {
 		this.setStatus(DeviceStatus.OFF);
 	}
 	
+	// Turn Light on
 	public void on() {
 		this.setStatus(DeviceStatus.ON);
 	}

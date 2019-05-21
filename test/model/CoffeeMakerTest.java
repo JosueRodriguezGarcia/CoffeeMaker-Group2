@@ -8,27 +8,27 @@ public class CoffeeMakerTest {
 	CoffeeMaker coffeemaker = new CoffeeMaker();
 	
 	@Test
-	public void getButton_resultStartButton() {
+	public void getButton_retrieveStartButton_resultStartButton() {
 		assertTrue(coffeemaker.getButton() instanceof StartButton);
 	}
 
 	@Test
-	public void getLight_resultLightIndicator() {
+	public void getLight_retrieveLightIndicator_resultLightIndicator() {
 		assertTrue(coffeemaker.getLight() instanceof LightIndicator);
 	}
 	
 	@Test
-	public void getSensor_resultISensor() {
+	public void getSensor_retrieveIsensor_resultISensor() {
 		assertTrue(coffeemaker.getSensor() instanceof ISensor);
 	}
 
 	@Test
-	public void getPlate_resultPlate() {
+	public void getPlate_retrievePlate_resultPlate() {
 		assertTrue(coffeemaker.getPlate() instanceof Plate);
 	}
 
 	@Test
-	public void getBoiler_resultBoiler() {
+	public void getBoiler_retrieveBoiler_resultBoiler() {
 		assertTrue(coffeemaker.getBoiler() instanceof Boiler);
 	}
 }

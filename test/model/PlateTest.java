@@ -9,12 +9,12 @@ public class PlateTest {
 	Plate plate = new Plate();
 	
 	@Test
-	public void getHeater_plate_resultHeater() {
+	public void getHeater_retrieveStatusPlateHeater_resultHeater() {
 		assertTrue(plate.getHeater() instanceof IDeviceDriver);
 	}
 
 	@Test
-	public void getSensor_plate_resultSensor() {
+	public void getSensor_retrieveStatusISensor_resultSensor() {
 		assertTrue(plate.getSensor() instanceof ISensor);
 	}
 

@@ -8,17 +8,17 @@ public class BoilerTest {
 	Boiler boiler = new Boiler();
 
 	@Test
-	public void getSensor_resultISensor() {
+	public void getSensor_retrieveISensor_resultISensor() {
 		assertTrue(boiler.getSensor() instanceof ISensor);
 	}
 	
 	@Test
-	public void getHeater_resultIDeviceDriver() {
+	public void getHeater_retrieveIDeviceDriver_resultIDeviceDriver() {
 		assertTrue(boiler.getHeater() instanceof IDeviceDriver);
 	}
 	
 	@Test
-	public void getValve_resultPressureValve() {
+	public void getValve_retrievePressureValve_resultPressureValve() {
 		assertTrue(boiler.getValve() instanceof PressureValve);
 	}
 }

@@ -10,6 +10,5 @@ public class CoffeMakerMarkIV {
 		CoffeeMaker myModel = new CoffeeMaker();
 		CoffeeMakerGui myView = new CoffeeMakerGui();				
 		CoffeeMakerController myController = new CoffeeMakerController(myModel, myView);
-		
 	}
 }
