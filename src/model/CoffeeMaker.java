@@ -7,6 +7,7 @@ public class CoffeeMaker {
 	Plate plate;
 	Boiler boiler;
 
+	// Constructor
 	public CoffeeMaker () {
 		button = new StartButton();
 		light = new LightIndicator();
@@ -15,6 +16,7 @@ public class CoffeeMaker {
 		boiler = new Boiler();
 	}
 
+	// Getters
 	public StartButton getButton() {
 		return this.button;
 	}
