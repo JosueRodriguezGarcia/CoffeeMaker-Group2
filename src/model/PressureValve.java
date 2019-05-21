@@ -13,14 +13,11 @@ public class PressureValve implements IValveDriver {
 		return status;
 	}
 
-<<<<<<< HEAD
-	// Open Relief Valve
-=======
 	public void setStatus(PressureValveStatus status) {
 		this.status = status; 
 	}
 
->>>>>>> 602ae9b7fe8fee9a5525089278882f59a96b6a17
+	// Open Relief Valve
 	public void open() {
 		this.setStatus(PressureValveStatus.OPEN); 
 	}

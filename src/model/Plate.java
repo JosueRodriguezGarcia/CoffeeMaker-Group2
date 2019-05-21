@@ -9,7 +9,6 @@ public class Plate {
 		this.heater = new Heater();
 		this.sensor = SensorFactory.create(SensorType.PLATE_SENSOR);
 	}
-
 	
 	// Getters
 	public IDeviceDriver getHeater() {
